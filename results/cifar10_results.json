@@ -1,0 +1,145 @@
+{
+  "completed_seeds": 5,
+  "results": [
+    {
+      "seed": 42,
+      "accuracies": {
+        "resnet": 0.9334,
+        "vit": 0.7968,
+        "mixer": 0.8118,
+        "resnet2": 0.934
+      },
+      "at_scores": {
+        "resnet_vs_vit": 0.26351228939066185,
+        "resnet_vs_mixer": 0.24674112445754984,
+        "vit_vs_mixer": 0.08109785354687542,
+        "resnet_vs_resnet2": 0.023489278808356127
+      },
+      "cka_scores": {
+        "resnet_vs_vit": 0.6375192999839783,
+        "resnet_vs_mixer": 0.6692444086074829,
+        "vit_vs_mixer": 0.7643335461616516,
+        "resnet_vs_resnet2": 0.9011388421058655
+      },
+      "layer_at": {
+        "resnet_layer1_vs_vit_block0": 0.03599700666775233,
+        "resnet_layer2_vs_vit_block2": 0.08892649587921822,
+        "resnet_layer3_vs_vit_block4": 0.18593558500397037,
+        "resnet_layer4_vs_vit_block5": 0.26861571507074117,
+        "resnet_final_vs_vit_final": 0.26351228939066185
+      }
+    },
+    {
+      "seed": 43,
+      "accuracies": {
+        "resnet": 0.9302,
+        "vit": 0.7772,
+        "mixer": 0.8164,
+        "resnet2": 0.9328
+      },
+      "at_scores": {
+        "resnet_vs_vit": 0.25244069831324734,
+        "resnet_vs_mixer": 0.22719249584086973,
+        "vit_vs_mixer": 0.0866068714361476,
+        "resnet_vs_resnet2": 0.02518794024623021
+      },
+      "cka_scores": {
+        "resnet_vs_vit": 0.6463049054145813,
+        "resnet_vs_mixer": 0.6802586913108826,
+        "vit_vs_mixer": 0.7542514204978943,
+        "resnet_vs_resnet2": 0.9061180353164673
+      },
+      "layer_at": {
+        "resnet_layer1_vs_vit_block0": 0.03861805232507695,
+        "resnet_layer2_vs_vit_block2": 0.0813261618642255,
+        "resnet_layer3_vs_vit_block4": 0.17996117054255545,
+        "resnet_layer4_vs_vit_block5": 0.25683072852230876,
+        "resnet_final_vs_vit_final": 0.25244069831324734
+      }
+    },
+    {
+      "seed": 44,
+      "accuracies": {
+        "resnet": 0.9302,
+        "vit": 0.771,
+        "mixer": 0.8208,
+        "resnet2": 0.9316
+      },
+      "at_scores": {
+        "resnet_vs_vit": 0.2585098551857132,
+        "resnet_vs_mixer": 0.2245991622459076,
+        "vit_vs_mixer": 0.040803907417262364,
+        "resnet_vs_resnet2": 0.025619000476855357
+      },
+      "cka_scores": {
+        "resnet_vs_vit": 0.6290459632873535,
+        "resnet_vs_mixer": 0.6622352600097656,
+        "vit_vs_mixer": 0.7328854203224182,
+        "resnet_vs_resnet2": 0.9055464267730713
+      },
+      "layer_at": {
+        "resnet_layer1_vs_vit_block0": 0.04212342369320166,
+        "resnet_layer2_vs_vit_block2": 0.09184124576502672,
+        "resnet_layer3_vs_vit_block4": 0.18302541495158983,
+        "resnet_layer4_vs_vit_block5": 0.26164422310551044,
+        "resnet_final_vs_vit_final": 0.2585098551857132
+      }
+    },
+    {
+      "seed": 45,
+      "accuracies": {
+        "resnet": 0.9322,
+        "vit": 0.786,
+        "mixer": 0.8058,
+        "resnet2": 0.933
+      },
+      "at_scores": {
+        "resnet_vs_vit": 0.2466410718278799,
+        "resnet_vs_mixer": 0.1251284302046476,
+        "vit_vs_mixer": 0.17539280110571667,
+        "resnet_vs_resnet2": 0.023611549206551532
+      },
+      "cka_scores": {
+        "resnet_vs_vit": 0.660634458065033,
+        "resnet_vs_mixer": 0.6706779599189758,
+        "vit_vs_mixer": 0.7884666323661804,
+        "resnet_vs_resnet2": 0.9060413837432861
+      },
+      "layer_at": {
+        "resnet_layer1_vs_vit_block0": 0.04987008973830466,
+        "resnet_layer2_vs_vit_block2": 0.08489124578212062,
+        "resnet_layer3_vs_vit_block4": 0.17561289697176988,
+        "resnet_layer4_vs_vit_block5": 0.24993585337631619,
+        "resnet_final_vs_vit_final": 0.2466410718278799
+      }
+    },
+    {
+      "seed": 46,
+      "accuracies": {
+        "resnet": 0.9336,
+        "vit": 0.7922,
+        "mixer": 0.8116,
+        "resnet2": 0.9304
+      },
+      "at_scores": {
+        "resnet_vs_vit": 0.24953192853082884,
+        "resnet_vs_mixer": 0.22043630662483604,
+        "vit_vs_mixer": 0.07611654579320966,
+        "resnet_vs_resnet2": 0.026724435097159487
+      },
+      "cka_scores": {
+        "resnet_vs_vit": 0.6523584127426147,
+        "resnet_vs_mixer": 0.6682174205780029,
+        "vit_vs_mixer": 0.763296902179718,
+        "resnet_vs_resnet2": 0.905318558216095
+      },
+      "layer_at": {
+        "resnet_layer1_vs_vit_block0": 0.030119847754833534,
+        "resnet_layer2_vs_vit_block2": 0.0925647419626448,
+        "resnet_layer3_vs_vit_block4": 0.18114232236527897,
+        "resnet_layer4_vs_vit_block5": 0.2530229807050735,
+        "resnet_final_vs_vit_final": 0.24953192853082884
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "experiment": "run_083_at_cifar100",
+  "n_seeds": 10,
+  "at_scores": {
+    "resnet_vs_vit": {"mean": 0.2913, "std": 0.0029},
+    "resnet_vs_mixer": {"mean": 0.3580, "std": 0.0767},
+    "vit_vs_mixer": {"mean": 0.1103, "std": 0.0689},
+    "resnet_vs_resnet2": {"mean": 0.0097, "std": 0.0013}
+  },
+  "cross_vs_same": {
+    "t": 15.969,
+    "p": 4.5e-12,
+    "cross_mean": 0.2532,
+    "same_mean": 0.0097
+  },
+  "time_min": 316.2
+}
