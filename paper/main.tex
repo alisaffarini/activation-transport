@@ -142,8 +142,8 @@ We evaluate three architecturally distinct families:
 
 \begin{enumerate}
     \item \textbf{ResNet-18.} A convolutional architecture with residual connections, learning hierarchical local features via spatial convolution. Final representation dimensionality: 512.
-    \item \textbf{ViT-Small.} A vision transformer (patch size 4, embedding dimension 192, 6 layers, 6 heads) with global self-attention. Final representation dimensionality: 192.
-    \item \textbf{MLP-Mixer.} A purely MLP-based architecture with token-mixing and channel-mixing layers (patch size 4, dimension 192, 6 layers). Final representation dimensionality: 192.
+    \item \textbf{ViT-Small.} A vision transformer with global self-attention. For CIFAR-10: patch size 4, embedding dimension 192, 6 layers, 6 heads (final dim: 192). For CIFAR-100: patch size 4, embedding dimension 256, 8 layers, 8 heads (final dim: 256), scaled up to handle the larger label space.
+    \item \textbf{MLP-Mixer.} A purely MLP-based architecture with token-mixing and channel-mixing layers. For CIFAR-10: patch size 4, dimension 192, 6 layers (final dim: 192). For CIFAR-100: patch size 4, dimension 256, 8 layers (final dim: 256), matching the ViT scaling.
     \item \textbf{ResNet-18-v2 (same-architecture baseline).} An independently initialized ResNet-18, providing the same-architecture AT baseline.
 \end{enumerate}
 
