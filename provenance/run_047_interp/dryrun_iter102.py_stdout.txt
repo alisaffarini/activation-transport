@@ -1,0 +1,6 @@
+Using device: cpu
+Validating metrics on synthetic data...
+Identical features: OT=0.000, CKA=1.000
+Metric validation failed: Identical features should have high similarity
+DRY_RUN_WARNING: Pipeline completed but no RESULTS: line was printed!
+DRY_RUN_WARNING: The post-processing/output stage may be broken.

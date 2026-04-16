@@ -1,0 +1,202 @@
+Using device: cpu
+Validating metrics...
+Identical: OT=0.996, CKA=1.000
+Random: OT=0.145
+✓ Metrics validated
+
+Loading MNIST...
+
+=== MAIN EXPERIMENT: CNN vs ViT ===
+
+Seed 0:
+Epoch 1: Train=43.7%, Val=75.5%
+Epoch 4: Train=89.0%, Val=93.5%
+Epoch 7: Train=93.1%, Val=94.4%
+Epoch 10: Train=95.1%, Val=95.3%
+CONVERGED
+Epoch 1: Train=67.6%, Val=79.0%
+Epoch 4: Train=89.5%, Val=88.7%
+Epoch 7: Train=91.7%, Val=88.7%
+CONVERGED
+OT=0.033, CKA=0.662
+
+Seed 1:
+Epoch 1: Train=39.0%, Val=75.0%
+Epoch 4: Train=87.7%, Val=92.9%
+Epoch 7: Train=93.2%, Val=94.9%
+Epoch 10: Train=95.4%, Val=94.6%
+CONVERGED
+Epoch 1: Train=68.5%, Val=80.2%
+Epoch 4: Train=91.0%, Val=89.8%
+Epoch 7: Train=91.4%, Val=89.4%
+CONVERGED
+OT=0.034, CKA=0.672
+
+Seed 2:
+Epoch 1: Train=38.7%, Val=75.5%
+Epoch 4: Train=87.3%, Val=93.2%
+Epoch 7: Train=92.3%, Val=94.7%
+Epoch 10: Train=94.4%, Val=95.7%
+Epoch 13: Train=95.5%, Val=95.6%
+CONVERGED
+Epoch 1: Train=67.5%, Val=80.7%
+Epoch 4: Train=88.5%, Val=85.5%
+Epoch 7: Train=91.7%, Val=90.1%
+Epoch 10: Train=93.0%, Val=89.5%
+CONVERGED
+OT=0.041, CKA=0.688
+
+Seed 3:
+Epoch 1: Train=41.1%, Val=79.5%
+Epoch 4: Train=87.7%, Val=93.2%
+Epoch 7: Train=91.6%, Val=93.9%
+Epoch 10: Train=94.4%, Val=95.2%
+CONVERGED
+Epoch 1: Train=67.2%, Val=78.0%
+Epoch 4: Train=88.9%, Val=88.1%
+Epoch 7: Train=91.1%, Val=89.7%
+CONVERGED
+OT=0.042, CKA=0.709
+
+Seed 4:
+Epoch 1: Train=45.0%, Val=79.4%
+Epoch 4: Train=90.1%, Val=92.9%
+Epoch 7: Train=93.4%, Val=94.7%
+Epoch 10: Train=95.2%, Val=94.9%
+CONVERGED
+Epoch 1: Train=66.5%, Val=79.5%
+Epoch 4: Train=88.8%, Val=88.1%
+Epoch 7: Train=91.3%, Val=88.4%
+CONVERGED
+OT=0.036, CKA=0.672
+
+Seed 5:
+Epoch 1: Train=45.5%, Val=80.0%
+Epoch 4: Train=91.7%, Val=93.5%
+Epoch 7: Train=93.8%, Val=94.8%
+Epoch 10: Train=95.0%, Val=95.8%
+CONVERGED
+Epoch 1: Train=66.3%, Val=78.4%
+Epoch 4: Train=87.9%, Val=87.7%
+Epoch 7: Train=90.8%, Val=89.7%
+Epoch 10: Train=91.5%, Val=89.5%
+CONVERGED
+OT=0.035, CKA=0.659
+
+Seed 6:
+Epoch 1: Train=38.3%, Val=76.3%
+Epoch 4: Train=87.6%, Val=92.9%
+Epoch 7: Train=92.5%, Val=94.3%
+CONVERGED
+Epoch 1: Train=64.6%, Val=77.9%
+Epoch 4: Train=89.0%, Val=87.7%
+Epoch 7: Train=90.4%, Val=87.5%
+Epoch 10: Train=92.8%, Val=90.0%
+CONVERGED
+OT=0.024, CKA=0.701
+
+Seed 7:
+Epoch 1: Train=42.5%, Val=78.0%
+Epoch 4: Train=90.6%, Val=93.7%
+Epoch 7: Train=93.2%, Val=94.5%
+Epoch 10: Train=94.9%, Val=94.8%
+CONVERGED
+Epoch 1: Train=65.6%, Val=78.5%
+Epoch 4: Train=87.8%, Val=87.1%
+Epoch 7: Train=91.7%, Val=89.9%
+Epoch 10: Train=92.8%, Val=88.6%
+CONVERGED
+OT=0.038, CKA=0.719
+
+Seed 8:
+Epoch 1: Train=44.0%, Val=84.6%
+Epoch 4: Train=89.1%, Val=92.9%
+Epoch 7: Train=92.9%, Val=93.5%
+Epoch 10: Train=94.8%, Val=95.6%
+CONVERGED
+Epoch 1: Train=68.5%, Val=78.3%
+Epoch 4: Train=89.1%, Val=88.3%
+Epoch 7: Train=91.5%, Val=89.9%
+Epoch 10: Train=92.4%, Val=90.5%
+Epoch 13: Train=93.5%, Val=88.9%
+CONVERGED
+OT=0.034, CKA=0.657
+
+Seed 9:
+Epoch 1: Train=43.4%, Val=76.7%
+Epoch 4: Train=86.5%, Val=92.5%
+Epoch 7: Train=92.1%, Val=94.5%
+Epoch 10: Train=93.3%, Val=94.7%
+CONVERGED
+Epoch 1: Train=66.4%, Val=76.7%
+Epoch 4: Train=88.7%, Val=85.1%
+Epoch 7: Train=91.8%, Val=88.0%
+CONVERGED
+OT=0.039, CKA=0.630
+
+=== BASELINES ===
+
+1. Random untrained models:
+  Random 1: OT=0.006
+  Random 2: OT=0.009
+  Random 3: OT=0.008
+
+2. Same architecture (CNN-CNN):
+Epoch 1: Train=43.8%, Val=82.8%
+Epoch 4: Train=90.5%, Val=92.4%
+Epoch 7: Train=94.2%, Val=94.0%
+Epoch 10: Train=95.5%, Val=95.7%
+NOT_CONVERGED: max epochs
+Epoch 1: Train=40.9%, Val=81.2%
+Epoch 4: Train=88.4%, Val=93.0%
+Epoch 7: Train=93.1%, Val=94.8%
+Epoch 10: Train=94.5%, Val=95.6%
+NOT_CONVERGED: max epochs
+  Same arch 1: OT=0.022
+Epoch 1: Train=44.4%, Val=83.5%
+Epoch 4: Train=89.5%, Val=93.4%
+Epoch 7: Train=92.3%, Val=94.3%
+Epoch 10: Train=94.2%, Val=94.6%
+NOT_CONVERGED: max epochs
+Epoch 1: Train=37.6%, Val=74.7%
+Epoch 4: Train=88.2%, Val=92.3%
+Epoch 7: Train=92.8%, Val=94.7%
+Epoch 10: Train=94.4%, Val=95.6%
+NOT_CONVERGED: max epochs
+  Same arch 2: OT=0.036
+Epoch 1: Train=43.2%, Val=76.3%
+Epoch 4: Train=87.8%, Val=91.9%
+Epoch 7: Train=92.2%, Val=94.1%
+Epoch 10: Train=94.3%, Val=95.7%
+NOT_CONVERGED: max epochs
+Epoch 1: Train=41.6%, Val=78.6%
+Epoch 4: Train=88.9%, Val=92.2%
+Epoch 7: Train=93.7%, Val=93.2%
+Epoch 10: Train=95.1%, Val=95.5%
+NOT_CONVERGED: max epochs
+  Same arch 3: OT=0.043
+
+=== ABLATION: Regularization ===
+Epoch 1: Train=44.0%, Val=77.6%
+Epoch 4: Train=87.2%, Val=91.7%
+Epoch 7: Train=92.8%, Val=94.5%
+Epoch 10: Train=94.4%, Val=94.8%
+NOT_CONVERGED: max epochs
+Epoch 1: Train=67.1%, Val=79.2%
+Epoch 4: Train=89.2%, Val=87.4%
+Epoch 7: Train=92.1%, Val=90.1%
+CONVERGED
+Reg=0.01: OT=1.000
+Reg=0.1: OT=0.030
+Reg=1.0: OT=0.003
+
+=== STATISTICAL ANALYSIS ===
+
+CNN-ViT similarity: OT=0.036 ± 0.005
+Baselines: Random=0.008, Same-arch=0.034
+p-value vs random: 0.0000
+p-value vs 30%: 1.0000
+
+NO_SIGNAL: No significant feature reuse
+
+RESULTS: {"mean": 0.03551510584366976, "std": 0.004687459638743498, "per_seed_results": [{"seed": 0, "ot_score": 0.03339015035548554, "cka_score": 0.661713182926178, "cnn_acc": 95.2, "vit_acc": 88.7, "converged": true}, {"seed": 1, "ot_score": 0.03425707133017453, "cka_score": 0.6718077659606934, "cnn_acc": 94.6, "vit_acc": 89.4, "converged": true}, {"seed": 2, "ot_score": 0.040780565590779805, "cka_score": 0.6878381371498108, "cnn_acc": 95.6, "vit_acc": 89.5, "converged": true}, {"seed": 3, "ot_score": 0.04157575343711295, "cka_score": 0.7090778946876526, "cnn_acc": 95.0, "vit_acc": 88.6, "converged": true}, {"seed": 4, "ot_score": 0.036033124064883015, "cka_score": 0.672034502029419, "cnn_acc": 94.9, "vit_acc": 88.4, "converged": true}, {"seed": 5, "ot_score": 0.03450768282284011, "cka_score": 0.6585515141487122, "cnn_acc": 95.9, "vit_acc": 90.6, "converged": true}, {"seed": 6, "ot_score": 0.024025855698168064, "cka_score": 0.7006766200065613, "cnn_acc": 93.8, "vit_acc": 89.9, "converged": true}, {"seed": 7, "ot_score": 0.037634382624009644, "cka_score": 0.7189375162124634, "cnn_acc": 95.3, "vit_acc": 88.6, "converged": true}, {"seed": 8, "ot_score": 0.034287521086501904, "cka_score": 0.6565581560134888, "cnn_acc": 95.6, "vit_acc": 88.9, "converged": true}, {"seed": 9, "ot_score": 0.03865895142674203, "cka_score": 0.6301370859146118, "cnn_acc": 95.1, "vit_acc": 89.5, "converged": true}], "p_values": {"vs_random": 1.3212160766726936e-08, "vs_30pct": 1.0}, "ablation_results": {"reg_0.01": 1.0, "reg_0.1": 0.030024547456810602, "reg_1.0": 0.0031915488632845435}, "convergence_status": [true, true, true, true, true, true, true, true, true, true], "baselines": {"random": 0.007838917437976897, "same_architecture": 0.03406709861354177, "cka_mean": 0.6767332375049591}, "signal_detected": false, "runtime_seconds": 196.3355758190155}

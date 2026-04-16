@@ -1,0 +1,19 @@
+Using device: cpu
+
+=== Running experiment with seed 0 ===
+
+Training CNN...
+Epoch 0: Train Loss: 3.3874, Val Loss: 0.2127
+Epoch 3: Train Loss: 0.3659, Val Loss: 0.1524
+Epoch 6: Train Loss: 0.1255, Val Loss: 0.1532
+Epoch 9: Train Loss: 0.0436, Val Loss: 0.2368
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 4.4089, Val Loss: 0.5035
+Epoch 3: Train Loss: 1.3670, Val Loss: 0.4116
+Epoch 6: Train Loss: 1.0819, Val Loss: 0.3832
+Epoch 9: Train Loss: 0.6806, Val Loss: 0.3738
+CONVERGED
+
+Measuring feature reuse...

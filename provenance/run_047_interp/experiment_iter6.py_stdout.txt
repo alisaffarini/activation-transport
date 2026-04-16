@@ -1,0 +1,354 @@
+Using device: cpu
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 0
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 77.99%, Val Acc: 94.80%
+Epoch 2: Train Acc: 97.34%, Val Acc: 97.70%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 43.97%, Val Acc: 54.60%
+Epoch 2: Train Acc: 77.10%, Val Acc: 80.00%
+Epoch 4: Train Acc: 86.76%, Val Acc: 84.20%
+Epoch 6: Train Acc: 91.31%, Val Acc: 86.60%
+Epoch 8: Train Acc: 94.04%, Val Acc: 89.90%
+Epoch 10: Train Acc: 96.08%, Val Acc: 90.70%
+Epoch 12: Train Acc: 97.74%, Val Acc: 92.30%
+Epoch 14: Train Acc: 98.47%, Val Acc: 91.30%
+Epoch 16: Train Acc: 99.09%, Val Acc: 91.70%
+Epoch 18: Train Acc: 99.30%, Val Acc: 92.00%
+Epoch 20: Train Acc: 99.81%, Val Acc: 92.10%
+Epoch 22: Train Acc: 99.86%, Val Acc: 92.60%
+Epoch 24: Train Acc: 99.91%, Val Acc: 92.20%
+Epoch 26: Train Acc: 99.92%, Val Acc: 92.50%
+Epoch 28: Train Acc: 99.91%, Val Acc: 92.70%
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+Computing same-architecture baseline...
+Epoch 0: Train Acc: 75.30%, Val Acc: 94.30%
+Epoch 2: Train Acc: 97.01%, Val Acc: 97.00%
+CONVERGED
+Running quick ablation...
+
+Seed 0 complete. Reuse: 0.500
+
+Completed 1/10 seeds. Elapsed: 4.7 min, Estimated total: 47.2 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 1
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 80.39%, Val Acc: 95.90%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 38.52%, Val Acc: 59.40%
+Epoch 2: Train Acc: 76.07%, Val Acc: 78.80%
+Epoch 4: Train Acc: 86.20%, Val Acc: 86.90%
+Epoch 6: Train Acc: 90.94%, Val Acc: 90.20%
+Epoch 8: Train Acc: 94.27%, Val Acc: 92.20%
+Epoch 10: Train Acc: 96.40%, Val Acc: 92.40%
+Epoch 12: Train Acc: 97.72%, Val Acc: 91.80%
+Epoch 14: Train Acc: 98.73%, Val Acc: 93.00%
+Epoch 16: Train Acc: 99.47%, Val Acc: 93.40%
+Epoch 18: Train Acc: 99.68%, Val Acc: 93.30%
+Epoch 20: Train Acc: 99.80%, Val Acc: 92.90%
+Epoch 22: Train Acc: 99.89%, Val Acc: 93.10%
+Epoch 24: Train Acc: 99.94%, Val Acc: 93.40%
+Epoch 26: Train Acc: 99.93%, Val Acc: 93.40%
+CONVERGED
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+Computing same-architecture baseline...
+Epoch 0: Train Acc: 78.22%, Val Acc: 96.30%
+CONVERGED
+Running quick ablation...
+
+Seed 1 complete. Reuse: 0.500
+
+Completed 2/10 seeds. Elapsed: 8.6 min, Estimated total: 42.8 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 2
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 78.38%, Val Acc: 93.50%
+Epoch 2: Train Acc: 97.48%, Val Acc: 98.00%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 45.22%, Val Acc: 59.60%
+Epoch 2: Train Acc: 78.56%, Val Acc: 77.20%
+Epoch 4: Train Acc: 87.98%, Val Acc: 84.50%
+Epoch 6: Train Acc: 92.61%, Val Acc: 88.50%
+Epoch 8: Train Acc: 94.22%, Val Acc: 89.90%
+Epoch 10: Train Acc: 96.54%, Val Acc: 90.90%
+Epoch 12: Train Acc: 97.82%, Val Acc: 91.80%
+Epoch 14: Train Acc: 98.18%, Val Acc: 91.80%
+Epoch 16: Train Acc: 98.87%, Val Acc: 92.50%
+Epoch 18: Train Acc: 99.44%, Val Acc: 92.40%
+Epoch 20: Train Acc: 99.66%, Val Acc: 92.80%
+Epoch 22: Train Acc: 99.81%, Val Acc: 93.00%
+Epoch 24: Train Acc: 99.89%, Val Acc: 92.90%
+Epoch 26: Train Acc: 99.92%, Val Acc: 93.30%
+Epoch 28: Train Acc: 99.93%, Val Acc: 93.40%
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+Computing same-architecture baseline...
+Epoch 0: Train Acc: 77.84%, Val Acc: 95.50%
+CONVERGED
+Running quick ablation...
+
+Seed 2 complete. Reuse: 0.500
+
+Completed 3/10 seeds. Elapsed: 13.1 min, Estimated total: 43.7 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 3
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 76.37%, Val Acc: 94.80%
+Epoch 2: Train Acc: 96.99%, Val Acc: 97.30%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 43.54%, Val Acc: 60.50%
+Epoch 2: Train Acc: 74.42%, Val Acc: 76.20%
+Epoch 4: Train Acc: 85.52%, Val Acc: 87.10%
+Epoch 6: Train Acc: 91.64%, Val Acc: 89.80%
+Epoch 8: Train Acc: 94.38%, Val Acc: 91.80%
+Epoch 10: Train Acc: 96.11%, Val Acc: 93.00%
+Epoch 12: Train Acc: 98.11%, Val Acc: 93.10%
+Epoch 14: Train Acc: 98.90%, Val Acc: 93.70%
+Epoch 16: Train Acc: 99.06%, Val Acc: 94.20%
+Epoch 18: Train Acc: 99.69%, Val Acc: 94.10%
+Epoch 20: Train Acc: 99.84%, Val Acc: 94.60%
+Epoch 22: Train Acc: 99.91%, Val Acc: 94.40%
+Epoch 24: Train Acc: 99.91%, Val Acc: 94.70%
+Epoch 26: Train Acc: 99.96%, Val Acc: 94.60%
+Epoch 28: Train Acc: 99.98%, Val Acc: 94.50%
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+
+Seed 3 complete. Reuse: 0.500
+
+Completed 4/10 seeds. Elapsed: 17.5 min, Estimated total: 43.7 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 4
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 78.93%, Val Acc: 96.20%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 45.84%, Val Acc: 64.30%
+Epoch 2: Train Acc: 77.12%, Val Acc: 82.60%
+Epoch 4: Train Acc: 85.64%, Val Acc: 86.40%
+Epoch 6: Train Acc: 91.31%, Val Acc: 88.90%
+Epoch 8: Train Acc: 94.58%, Val Acc: 90.00%
+Epoch 10: Train Acc: 95.91%, Val Acc: 90.90%
+Epoch 12: Train Acc: 97.61%, Val Acc: 91.90%
+Epoch 14: Train Acc: 98.43%, Val Acc: 92.20%
+Epoch 16: Train Acc: 99.06%, Val Acc: 91.70%
+Epoch 18: Train Acc: 99.40%, Val Acc: 92.30%
+Epoch 20: Train Acc: 99.77%, Val Acc: 92.00%
+Epoch 22: Train Acc: 99.81%, Val Acc: 91.80%
+Epoch 24: Train Acc: 99.87%, Val Acc: 92.10%
+Epoch 26: Train Acc: 99.94%, Val Acc: 92.20%
+Epoch 28: Train Acc: 99.91%, Val Acc: 92.10%
+CONVERGED
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+
+Seed 4 complete. Reuse: 0.500
+
+Completed 5/10 seeds. Elapsed: 21.4 min, Estimated total: 42.8 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 5
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 75.87%, Val Acc: 96.30%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 44.77%, Val Acc: 59.90%
+Epoch 2: Train Acc: 76.73%, Val Acc: 78.00%
+Epoch 4: Train Acc: 84.60%, Val Acc: 84.30%
+Epoch 6: Train Acc: 89.68%, Val Acc: 87.90%
+Epoch 8: Train Acc: 93.19%, Val Acc: 89.40%
+Epoch 10: Train Acc: 95.49%, Val Acc: 90.40%
+Epoch 12: Train Acc: 97.14%, Val Acc: 90.90%
+Epoch 14: Train Acc: 98.24%, Val Acc: 90.20%
+Epoch 16: Train Acc: 98.86%, Val Acc: 91.90%
+Epoch 18: Train Acc: 99.18%, Val Acc: 91.90%
+Epoch 20: Train Acc: 99.74%, Val Acc: 92.40%
+Epoch 22: Train Acc: 99.79%, Val Acc: 93.00%
+Epoch 24: Train Acc: 99.86%, Val Acc: 92.70%
+Epoch 26: Train Acc: 99.93%, Val Acc: 92.90%
+Epoch 28: Train Acc: 99.91%, Val Acc: 93.00%
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+
+Seed 5 complete. Reuse: 0.500
+
+Completed 6/10 seeds. Elapsed: 25.5 min, Estimated total: 42.6 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 6
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 74.88%, Val Acc: 94.60%
+Epoch 2: Train Acc: 97.13%, Val Acc: 97.70%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 46.88%, Val Acc: 62.60%
+Epoch 2: Train Acc: 78.12%, Val Acc: 76.40%
+Epoch 4: Train Acc: 87.47%, Val Acc: 84.00%
+Epoch 6: Train Acc: 92.12%, Val Acc: 88.00%
+Epoch 8: Train Acc: 94.54%, Val Acc: 88.60%
+Epoch 10: Train Acc: 96.24%, Val Acc: 90.70%
+Epoch 12: Train Acc: 97.51%, Val Acc: 91.00%
+Epoch 14: Train Acc: 98.01%, Val Acc: 90.70%
+Epoch 16: Train Acc: 99.27%, Val Acc: 91.20%
+Epoch 18: Train Acc: 99.71%, Val Acc: 91.60%
+Epoch 20: Train Acc: 99.76%, Val Acc: 91.80%
+Epoch 22: Train Acc: 99.88%, Val Acc: 91.40%
+Epoch 24: Train Acc: 99.96%, Val Acc: 91.60%
+Epoch 26: Train Acc: 99.92%, Val Acc: 91.60%
+Epoch 28: Train Acc: 99.97%, Val Acc: 91.50%
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+
+Seed 6 complete. Reuse: 0.500
+
+Completed 7/10 seeds. Elapsed: 29.9 min, Estimated total: 42.7 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 7
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 79.88%, Val Acc: 97.10%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 44.99%, Val Acc: 67.10%
+Epoch 2: Train Acc: 78.71%, Val Acc: 81.90%
+Epoch 4: Train Acc: 87.78%, Val Acc: 89.10%
+Epoch 6: Train Acc: 92.03%, Val Acc: 90.80%
+Epoch 8: Train Acc: 95.13%, Val Acc: 92.40%
+Epoch 10: Train Acc: 96.59%, Val Acc: 92.90%
+Epoch 12: Train Acc: 97.98%, Val Acc: 93.70%
+Epoch 14: Train Acc: 98.42%, Val Acc: 93.30%
+Epoch 16: Train Acc: 99.59%, Val Acc: 93.40%
+Epoch 18: Train Acc: 99.74%, Val Acc: 93.70%
+Epoch 20: Train Acc: 99.87%, Val Acc: 93.00%
+Epoch 22: Train Acc: 99.90%, Val Acc: 93.30%
+CONVERGED
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+
+Seed 7 complete. Reuse: 0.500
+
+Completed 8/10 seeds. Elapsed: 33.0 min, Estimated total: 41.3 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 8
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 78.13%, Val Acc: 94.60%
+Epoch 2: Train Acc: 97.27%, Val Acc: 96.60%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 44.96%, Val Acc: 64.00%
+Epoch 2: Train Acc: 76.77%, Val Acc: 81.70%
+Epoch 4: Train Acc: 86.50%, Val Acc: 86.80%
+Epoch 6: Train Acc: 90.97%, Val Acc: 90.70%
+Epoch 8: Train Acc: 93.41%, Val Acc: 92.10%
+Epoch 10: Train Acc: 95.72%, Val Acc: 93.40%
+Epoch 12: Train Acc: 97.91%, Val Acc: 92.40%
+Epoch 14: Train Acc: 98.34%, Val Acc: 93.80%
+Epoch 16: Train Acc: 99.21%, Val Acc: 94.70%
+Epoch 18: Train Acc: 99.60%, Val Acc: 94.20%
+Epoch 20: Train Acc: 99.70%, Val Acc: 94.50%
+Epoch 22: Train Acc: 99.81%, Val Acc: 94.20%
+Epoch 24: Train Acc: 99.88%, Val Acc: 94.50%
+Epoch 26: Train Acc: 99.96%, Val Acc: 95.30%
+CONVERGED
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+
+Seed 8 complete. Reuse: 0.500
+
+Completed 9/10 seeds. Elapsed: 37.0 min, Estimated total: 41.1 min
+
+==================================================
+Running experiment - Dataset: MNIST, Seed: 9
+==================================================
+
+Training CNN...
+Epoch 0: Train Acc: 75.54%, Val Acc: 90.50%
+Epoch 2: Train Acc: 97.30%, Val Acc: 95.50%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Acc: 44.93%, Val Acc: 55.20%
+Epoch 2: Train Acc: 77.73%, Val Acc: 77.80%
+Epoch 4: Train Acc: 86.44%, Val Acc: 84.60%
+Epoch 6: Train Acc: 90.50%, Val Acc: 86.80%
+Epoch 8: Train Acc: 93.71%, Val Acc: 87.00%
+Epoch 10: Train Acc: 96.23%, Val Acc: 89.20%
+Epoch 12: Train Acc: 98.21%, Val Acc: 89.90%
+Epoch 14: Train Acc: 98.50%, Val Acc: 90.60%
+Epoch 16: Train Acc: 99.09%, Val Acc: 91.40%
+Epoch 18: Train Acc: 99.73%, Val Acc: 90.20%
+Epoch 20: Train Acc: 99.82%, Val Acc: 91.40%
+Epoch 22: Train Acc: 99.84%, Val Acc: 91.10%
+Epoch 24: Train Acc: 99.96%, Val Acc: 91.40%
+Epoch 26: Train Acc: 99.93%, Val Acc: 91.20%
+CONVERGED
+
+Measuring feature reuse...
+Feature reuse score: 0.500
+
+Seed 9 complete. Reuse: 0.500
+
+Completed 10/10 seeds. Elapsed: 41.0 min, Estimated total: 41.0 min
+
+==================================================
+AGGREGATING RESULTS
+==================================================
+
+SIGNAL_DETECTED: Cross-architecture feature reuse of 50.0% significantly above random baseline (p=0.000)
+
+==================================================
+FINAL RESULTS SUMMARY
+==================================================
+Cross-architecture reuse: 0.500 ± 0.000
+95% CI: [0.500, 0.500]
+Same-architecture reuse: 0.724
+Statistical significance vs random: p = 0.0000
+Total runtime: 41.0 minutes

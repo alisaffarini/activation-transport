@@ -1,0 +1,508 @@
+Using device: cpu
+Running 10-seed experiment on MNIST
+Device: cpu
+============================================================
+
+============================================================
+SEED 0 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3159, Val Loss: 0.0934, Val Acc: 96.95%
+Epoch 2: Train Loss: 0.0613, Val Loss: 0.0638, Val Acc: 97.90%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.0621, Val Loss: 0.5430, Val Acc: 83.30%
+Epoch 2: Train Loss: 0.2832, Val Loss: 0.2564, Val Acc: 92.05%
+Epoch 4: Train Loss: 0.1491, Val Loss: 0.1921, Val Acc: 94.60%
+Epoch 6: Train Loss: 0.0984, Val Loss: 0.1715, Val Acc: 95.05%
+Epoch 8: Train Loss: 0.0703, Val Loss: 0.1907, Val Acc: 94.90%
+Epoch 10: Train Loss: 0.0594, Val Loss: 0.1672, Val Acc: 95.50%
+Epoch 12: Train Loss: 0.0473, Val Loss: 0.1898, Val Acc: 95.45%
+Epoch 14: Train Loss: 0.0369, Val Loss: 0.1784, Val Acc: 95.75%
+Epoch 16: Train Loss: 0.0365, Val Loss: 0.1939, Val Acc: 95.40%
+Epoch 18: Train Loss: 0.0240, Val Loss: 0.1971, Val Acc: 95.90%
+Epoch 20: Train Loss: 0.0027, Val Loss: 0.1657, Val Acc: 96.85%
+Epoch 22: Train Loss: 0.0015, Val Loss: 0.1594, Val Acc: 96.95%
+Epoch 24: Train Loss: 0.0009, Val Loss: 0.1630, Val Acc: 97.10%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.433
+Random features consistency: 0.516
+Improvement: -0.083
+
+=== BASELINES ===
+Computing same-architecture baseline...
+Epoch 0: Train Loss: 0.3198, Val Loss: 0.1285, Val Acc: 96.50%
+Epoch 2: Train Loss: 0.0614, Val Loss: 0.0521, Val Acc: 98.60%
+CONVERGED
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.804
+
+=== ABLATIONS ===
+Metric l2: 0.500
+Metric kl: 0.500
+Bins 30: 0.500
+Bins 100: 0.500
+Threshold percentile 30: 0.297
+Threshold percentile 70: 0.703
+Early layers: 0.500
+
+Progress: 1/10 seeds completed
+Elapsed: 6.9 min, ETA: 61.8 min
+
+============================================================
+SEED 1 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3041, Val Loss: 0.0743, Val Acc: 97.70%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.0607, Val Loss: 0.6440, Val Acc: 78.90%
+Epoch 2: Train Loss: 0.2974, Val Loss: 0.2993, Val Acc: 90.85%
+Epoch 4: Train Loss: 0.1750, Val Loss: 0.2256, Val Acc: 93.85%
+Epoch 6: Train Loss: 0.1097, Val Loss: 0.2188, Val Acc: 94.10%
+Epoch 8: Train Loss: 0.0817, Val Loss: 0.2022, Val Acc: 94.85%
+Epoch 10: Train Loss: 0.0564, Val Loss: 0.2045, Val Acc: 94.85%
+Epoch 12: Train Loss: 0.0567, Val Loss: 0.1961, Val Acc: 95.15%
+Epoch 14: Train Loss: 0.0406, Val Loss: 0.1994, Val Acc: 95.45%
+Epoch 16: Train Loss: 0.0363, Val Loss: 0.1977, Val Acc: 95.60%
+Epoch 18: Train Loss: 0.0322, Val Loss: 0.1957, Val Acc: 95.65%
+Epoch 20: Train Loss: 0.0294, Val Loss: 0.2006, Val Acc: 95.05%
+Epoch 22: Train Loss: 0.0199, Val Loss: 0.2109, Val Acc: 95.75%
+Epoch 24: Train Loss: 0.0237, Val Loss: 0.2402, Val Acc: 94.85%
+Epoch 26: Train Loss: 0.0195, Val Loss: 0.1756, Val Acc: 96.30%
+Epoch 28: Train Loss: 0.0170, Val Loss: 0.2129, Val Acc: 95.55%
+Epoch 30: Train Loss: 0.0085, Val Loss: 0.1845, Val Acc: 96.55%
+Epoch 32: Train Loss: 0.0121, Val Loss: 0.1858, Val Acc: 95.95%
+Epoch 34: Train Loss: 0.0265, Val Loss: 0.1806, Val Acc: 95.95%
+Epoch 36: Train Loss: 0.0014, Val Loss: 0.1569, Val Acc: 96.50%
+Epoch 38: Train Loss: 0.0008, Val Loss: 0.1578, Val Acc: 96.45%
+Epoch 40: Train Loss: 0.0006, Val Loss: 0.1583, Val Acc: 96.70%
+Epoch 42: Train Loss: 0.0006, Val Loss: 0.1565, Val Acc: 96.95%
+Epoch 44: Train Loss: 0.0005, Val Loss: 0.1573, Val Acc: 96.95%
+Epoch 46: Train Loss: 0.0006, Val Loss: 0.1560, Val Acc: 96.90%
+Epoch 48: Train Loss: 0.0006, Val Loss: 0.1539, Val Acc: 96.90%
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.463
+Random features consistency: 0.458
+Improvement: 0.005
+
+=== BASELINES ===
+Computing same-architecture baseline...
+Epoch 0: Train Loss: 0.3269, Val Loss: 0.0925, Val Acc: 96.85%
+Epoch 2: Train Loss: 0.0606, Val Loss: 0.0591, Val Acc: 98.05%
+CONVERGED
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.839
+
+=== ABLATIONS ===
+Metric l2: 0.500
+Metric kl: 0.500
+Bins 30: 0.500
+Bins 100: 0.500
+Threshold percentile 30: 0.297
+Threshold percentile 70: 0.703
+Early layers: 0.500
+
+Progress: 2/10 seeds completed
+Elapsed: 19.4 min, ETA: 77.8 min
+
+============================================================
+SEED 2 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3434, Val Loss: 0.0818, Val Acc: 97.35%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.0963, Val Loss: 0.6345, Val Acc: 79.15%
+Epoch 2: Train Loss: 0.3206, Val Loss: 0.2769, Val Acc: 91.30%
+Epoch 4: Train Loss: 0.1743, Val Loss: 0.1750, Val Acc: 94.70%
+Epoch 6: Train Loss: 0.1097, Val Loss: 0.1654, Val Acc: 94.85%
+Epoch 8: Train Loss: 0.0830, Val Loss: 0.1614, Val Acc: 95.10%
+Epoch 10: Train Loss: 0.0661, Val Loss: 0.1779, Val Acc: 94.95%
+Epoch 12: Train Loss: 0.0557, Val Loss: 0.1426, Val Acc: 96.30%
+Epoch 14: Train Loss: 0.0325, Val Loss: 0.1523, Val Acc: 96.35%
+Epoch 16: Train Loss: 0.0363, Val Loss: 0.1460, Val Acc: 96.30%
+Epoch 18: Train Loss: 0.0313, Val Loss: 0.1447, Val Acc: 96.30%
+Epoch 20: Train Loss: 0.0363, Val Loss: 0.1428, Val Acc: 96.50%
+Epoch 22: Train Loss: 0.0027, Val Loss: 0.1264, Val Acc: 97.20%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.409
+Random features consistency: 0.443
+Improvement: -0.033
+
+=== BASELINES ===
+Computing same-architecture baseline...
+Epoch 0: Train Loss: 0.3428, Val Loss: 0.0761, Val Acc: 97.75%
+CONVERGED
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.801
+
+=== ABLATIONS ===
+Metric l2: 0.500
+Metric kl: 0.500
+Bins 30: 0.500
+Bins 100: 0.500
+Threshold percentile 30: 0.297
+Threshold percentile 70: 0.703
+Early layers: 0.500
+
+Progress: 3/10 seeds completed
+Elapsed: 25.6 min, ETA: 59.7 min
+
+============================================================
+SEED 3 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3565, Val Loss: 0.0799, Val Acc: 97.40%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.0615, Val Loss: 0.6316, Val Acc: 80.85%
+Epoch 2: Train Loss: 0.3098, Val Loss: 0.2917, Val Acc: 91.25%
+Epoch 4: Train Loss: 0.1705, Val Loss: 0.2275, Val Acc: 93.40%
+Epoch 6: Train Loss: 0.1197, Val Loss: 0.2408, Val Acc: 92.90%
+Epoch 8: Train Loss: 0.0802, Val Loss: 0.1699, Val Acc: 94.95%
+Epoch 10: Train Loss: 0.0649, Val Loss: 0.2082, Val Acc: 94.25%
+Epoch 12: Train Loss: 0.0546, Val Loss: 0.2112, Val Acc: 94.75%
+Epoch 14: Train Loss: 0.0305, Val Loss: 0.1922, Val Acc: 95.25%
+Epoch 16: Train Loss: 0.0393, Val Loss: 0.2079, Val Acc: 95.05%
+Epoch 18: Train Loss: 0.0047, Val Loss: 0.1656, Val Acc: 95.70%
+Epoch 20: Train Loss: 0.0027, Val Loss: 0.1813, Val Acc: 95.85%
+Epoch 22: Train Loss: 0.0019, Val Loss: 0.1694, Val Acc: 96.25%
+Epoch 24: Train Loss: 0.0011, Val Loss: 0.1796, Val Acc: 96.10%
+Epoch 26: Train Loss: 0.0009, Val Loss: 0.1815, Val Acc: 96.35%
+Epoch 28: Train Loss: 0.0007, Val Loss: 0.1835, Val Acc: 96.10%
+Epoch 30: Train Loss: 0.0007, Val Loss: 0.1790, Val Acc: 96.20%
+Epoch 32: Train Loss: 0.0007, Val Loss: 0.1787, Val Acc: 96.25%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.553
+Random features consistency: 0.444
+Improvement: 0.109
+
+=== BASELINES ===
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.807
+
+=== ABLATIONS ===
+Metric l2: 0.500
+Metric kl: 0.500
+Bins 30: 0.500
+Bins 100: 0.500
+Threshold percentile 30: 0.297
+Threshold percentile 70: 0.703
+Early layers: 0.500
+
+Progress: 4/10 seeds completed
+Elapsed: 33.5 min, ETA: 50.3 min
+
+============================================================
+SEED 4 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3470, Val Loss: 0.0774, Val Acc: 97.65%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.1185, Val Loss: 0.6426, Val Acc: 80.60%
+Epoch 2: Train Loss: 0.2902, Val Loss: 0.2662, Val Acc: 91.85%
+Epoch 4: Train Loss: 0.1485, Val Loss: 0.1879, Val Acc: 94.35%
+Epoch 6: Train Loss: 0.1102, Val Loss: 0.1843, Val Acc: 94.50%
+Epoch 8: Train Loss: 0.0654, Val Loss: 0.1648, Val Acc: 95.45%
+Epoch 10: Train Loss: 0.0533, Val Loss: 0.1787, Val Acc: 95.60%
+Epoch 12: Train Loss: 0.0455, Val Loss: 0.1557, Val Acc: 95.95%
+Epoch 14: Train Loss: 0.0375, Val Loss: 0.1656, Val Acc: 95.95%
+Epoch 16: Train Loss: 0.0353, Val Loss: 0.1758, Val Acc: 95.30%
+Epoch 18: Train Loss: 0.0311, Val Loss: 0.1733, Val Acc: 96.10%
+Epoch 20: Train Loss: 0.0290, Val Loss: 0.1558, Val Acc: 96.50%
+Epoch 22: Train Loss: 0.0027, Val Loss: 0.1414, Val Acc: 97.05%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.495
+Random features consistency: 0.486
+Improvement: 0.010
+
+=== BASELINES ===
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.784
+
+=== ABLATIONS ===
+Metric l2: 0.500
+Metric kl: 0.500
+Bins 30: 0.500
+Bins 100: 0.500
+Threshold percentile 30: 0.297
+Threshold percentile 70: 0.703
+Early layers: 0.500
+
+Progress: 5/10 seeds completed
+Elapsed: 39.4 min, ETA: 39.4 min
+
+============================================================
+SEED 5 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3052, Val Loss: 0.0882, Val Acc: 97.15%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.0930, Val Loss: 0.6411, Val Acc: 79.65%
+Epoch 2: Train Loss: 0.3190, Val Loss: 0.2946, Val Acc: 91.55%
+Epoch 4: Train Loss: 0.1724, Val Loss: 0.2194, Val Acc: 93.40%
+Epoch 6: Train Loss: 0.1142, Val Loss: 0.1809, Val Acc: 94.75%
+Epoch 8: Train Loss: 0.0722, Val Loss: 0.2258, Val Acc: 93.60%
+Epoch 10: Train Loss: 0.0499, Val Loss: 0.1836, Val Acc: 95.05%
+Epoch 12: Train Loss: 0.0544, Val Loss: 0.2023, Val Acc: 95.25%
+Epoch 14: Train Loss: 0.0360, Val Loss: 0.2231, Val Acc: 94.85%
+Epoch 16: Train Loss: 0.0050, Val Loss: 0.1565, Val Acc: 96.70%
+Epoch 18: Train Loss: 0.0022, Val Loss: 0.1666, Val Acc: 96.75%
+Epoch 20: Train Loss: 0.0014, Val Loss: 0.1743, Val Acc: 96.60%
+Epoch 22: Train Loss: 0.0010, Val Loss: 0.1699, Val Acc: 96.70%
+Epoch 24: Train Loss: 0.0010, Val Loss: 0.1691, Val Acc: 96.90%
+Epoch 26: Train Loss: 0.0008, Val Loss: 0.1695, Val Acc: 96.70%
+Epoch 28: Train Loss: 0.0007, Val Loss: 0.1700, Val Acc: 96.55%
+Epoch 30: Train Loss: 0.0012, Val Loss: 0.1636, Val Acc: 96.75%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.354
+Random features consistency: 0.370
+Improvement: -0.016
+
+=== BASELINES ===
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.837
+
+Progress: 6/10 seeds completed
+Elapsed: 47.1 min, ETA: 31.4 min
+
+============================================================
+SEED 6 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3352, Val Loss: 0.0897, Val Acc: 97.20%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.0999, Val Loss: 0.6366, Val Acc: 79.10%
+Epoch 2: Train Loss: 0.3000, Val Loss: 0.2419, Val Acc: 92.05%
+Epoch 4: Train Loss: 0.1678, Val Loss: 0.1902, Val Acc: 94.30%
+Epoch 6: Train Loss: 0.1089, Val Loss: 0.1879, Val Acc: 94.60%
+Epoch 8: Train Loss: 0.0851, Val Loss: 0.1783, Val Acc: 95.10%
+Epoch 10: Train Loss: 0.0646, Val Loss: 0.1777, Val Acc: 94.90%
+Epoch 12: Train Loss: 0.0484, Val Loss: 0.1338, Val Acc: 96.05%
+Epoch 14: Train Loss: 0.0297, Val Loss: 0.1853, Val Acc: 94.85%
+Epoch 16: Train Loss: 0.0346, Val Loss: 0.1483, Val Acc: 95.80%
+Epoch 18: Train Loss: 0.0387, Val Loss: 0.1384, Val Acc: 96.35%
+Epoch 20: Train Loss: 0.0183, Val Loss: 0.1448, Val Acc: 96.45%
+Epoch 22: Train Loss: 0.0029, Val Loss: 0.1026, Val Acc: 97.15%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.417
+Random features consistency: 0.465
+Improvement: -0.048
+
+=== BASELINES ===
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.783
+
+Progress: 7/10 seeds completed
+Elapsed: 52.3 min, ETA: 22.4 min
+
+============================================================
+SEED 7 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3307, Val Loss: 0.0762, Val Acc: 97.35%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.0888, Val Loss: 0.6119, Val Acc: 81.10%
+Epoch 2: Train Loss: 0.2869, Val Loss: 0.2852, Val Acc: 91.45%
+Epoch 4: Train Loss: 0.1681, Val Loss: 0.1881, Val Acc: 94.35%
+Epoch 6: Train Loss: 0.1122, Val Loss: 0.1636, Val Acc: 95.25%
+Epoch 8: Train Loss: 0.0822, Val Loss: 0.2021, Val Acc: 94.15%
+Epoch 10: Train Loss: 0.0569, Val Loss: 0.1696, Val Acc: 94.95%
+Epoch 12: Train Loss: 0.0352, Val Loss: 0.1532, Val Acc: 95.75%
+Epoch 14: Train Loss: 0.0415, Val Loss: 0.1626, Val Acc: 95.55%
+Epoch 16: Train Loss: 0.0369, Val Loss: 0.1430, Val Acc: 96.40%
+Epoch 18: Train Loss: 0.0324, Val Loss: 0.1255, Val Acc: 96.20%
+Epoch 20: Train Loss: 0.0233, Val Loss: 0.1348, Val Acc: 96.50%
+Epoch 22: Train Loss: 0.0140, Val Loss: 0.1545, Val Acc: 96.10%
+Epoch 24: Train Loss: 0.0266, Val Loss: 0.1540, Val Acc: 96.05%
+Epoch 26: Train Loss: 0.0282, Val Loss: 0.1367, Val Acc: 96.25%
+Epoch 28: Train Loss: 0.0020, Val Loss: 0.1170, Val Acc: 96.90%
+Epoch 30: Train Loss: 0.0008, Val Loss: 0.1202, Val Acc: 97.10%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.442
+Random features consistency: 0.484
+Improvement: -0.042
+
+=== BASELINES ===
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.799
+
+Progress: 8/10 seeds completed
+Elapsed: 59.1 min, ETA: 14.8 min
+
+============================================================
+SEED 8 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3329, Val Loss: 0.0753, Val Acc: 97.75%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.0748, Val Loss: 0.5643, Val Acc: 82.15%
+Epoch 2: Train Loss: 0.2921, Val Loss: 0.2907, Val Acc: 91.05%
+Epoch 4: Train Loss: 0.1583, Val Loss: 0.2349, Val Acc: 92.95%
+Epoch 6: Train Loss: 0.1053, Val Loss: 0.1875, Val Acc: 94.55%
+Epoch 8: Train Loss: 0.0761, Val Loss: 0.1978, Val Acc: 93.70%
+Epoch 10: Train Loss: 0.0506, Val Loss: 0.1529, Val Acc: 95.75%
+Epoch 12: Train Loss: 0.0521, Val Loss: 0.1829, Val Acc: 94.80%
+Epoch 14: Train Loss: 0.0382, Val Loss: 0.1702, Val Acc: 95.40%
+Epoch 16: Train Loss: 0.0387, Val Loss: 0.1756, Val Acc: 95.40%
+Epoch 18: Train Loss: 0.0290, Val Loss: 0.1886, Val Acc: 95.50%
+Epoch 20: Train Loss: 0.0035, Val Loss: 0.1362, Val Acc: 96.65%
+Epoch 22: Train Loss: 0.0013, Val Loss: 0.1334, Val Acc: 97.15%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.475
+Random features consistency: 0.475
+Improvement: -0.000
+
+=== BASELINES ===
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.800
+
+Progress: 9/10 seeds completed
+Elapsed: 64.8 min, ETA: 7.2 min
+
+============================================================
+SEED 9 - Dataset: MNIST
+============================================================
+
+Training CNN...
+Epoch 0: Train Loss: 0.3543, Val Loss: 0.0695, Val Acc: 97.80%
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 1.1716, Val Loss: 0.6737, Val Acc: 78.95%
+Epoch 2: Train Loss: 0.3269, Val Loss: 0.3249, Val Acc: 89.70%
+Epoch 4: Train Loss: 0.1719, Val Loss: 0.2157, Val Acc: 93.25%
+Epoch 6: Train Loss: 0.1146, Val Loss: 0.1823, Val Acc: 94.65%
+Epoch 8: Train Loss: 0.0752, Val Loss: 0.1702, Val Acc: 95.45%
+Epoch 10: Train Loss: 0.0626, Val Loss: 0.2003, Val Acc: 94.85%
+Epoch 12: Train Loss: 0.0467, Val Loss: 0.1631, Val Acc: 95.40%
+Epoch 14: Train Loss: 0.0352, Val Loss: 0.2045, Val Acc: 95.20%
+Epoch 16: Train Loss: 0.0449, Val Loss: 0.1573, Val Acc: 96.10%
+Epoch 18: Train Loss: 0.0244, Val Loss: 0.1621, Val Acc: 96.10%
+Epoch 20: Train Loss: 0.0245, Val Loss: 0.1574, Val Acc: 96.45%
+Epoch 22: Train Loss: 0.0199, Val Loss: 0.1669, Val Acc: 96.40%
+Epoch 24: Train Loss: 0.0184, Val Loss: 0.1490, Val Acc: 96.25%
+Epoch 26: Train Loss: 0.0307, Val Loss: 0.1436, Val Acc: 96.70%
+Epoch 28: Train Loss: 0.0252, Val Loss: 0.1442, Val Acc: 96.50%
+Epoch 30: Train Loss: 0.0051, Val Loss: 0.1305, Val Acc: 96.95%
+Epoch 32: Train Loss: 0.0250, Val Loss: 0.1596, Val Acc: 96.45%
+Epoch 34: Train Loss: 0.0180, Val Loss: 0.1526, Val Acc: 96.55%
+Epoch 36: Train Loss: 0.0189, Val Loss: 0.1579, Val Acc: 96.30%
+Epoch 38: Train Loss: 0.0197, Val Loss: 0.1470, Val Acc: 96.55%
+Epoch 40: Train Loss: 0.0011, Val Loss: 0.1259, Val Acc: 97.50%
+CONVERGED
+
+=== MAIN EXPERIMENT ===
+Feature reuse score: 0.500
+Number of reused pairs: 32/64
+
+=== VALIDATION ===
+Reused features consistency: 0.350
+Random features consistency: 0.474
+Improvement: -0.124
+
+=== BASELINES ===
+Computing CKA similarity...
+Baselines - Random: 0.100, Untrained: 0.500, CKA: 0.805
+
+Progress: 10/10 seeds completed
+Elapsed: 74.5 min, ETA: 0.0 min
+
+============================================================
+AGGREGATING RESULTS
+============================================================
+
+FINAL RESULTS
+============================================================
+Cross-architecture reuse: 0.500 ± 0.000
+95% CI: [0.500, 0.500]
+Same-architecture reuse: 0.724
+CKA similarity: 0.806
+
+Statistical significance:
+  vs random (p=0.0000), effect size = 400000.00
+  vs untrained (p=nan), effect size = 0.00
+
+Consistency improvement: -0.022
+Total runtime: 74.5 minutes
+
+NO_SIGNAL: Feature reuse not significantly above baselines
+
+RESULTS: {"experiment_config": {"dataset": "mnist", "n_seeds": 10, "models": ["CNN", "ViT"], "primary_metric": "wasserstein", "n_bins": 50, "device": "cpu"}, "per_seed_results": [{"seed": 0, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 13.632396697998047}, "validation": {"reused_consistency": 0.4329573941211361, "random_consistency": 0.516075674027952, "improvement": -0.08311827990681586}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.42857142857142855, "cka": 0.8036645374509555}, "ablations": {"metric_l2": 0.5, "metric_kl": 0.5, "bins_30": 0.5, "bins_100": 0.5, "threshold_30": 0.296875, "threshold_70": 0.703125, "early_layers": 0.5}}, {"seed": 1, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 14.27522087097168}, "validation": {"reused_consistency": 0.463454483387685, "random_consistency": 0.45815131564855294, "improvement": 0.005303167739132086}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.42857142857142855, "cka": 0.8391548226634599}, "ablations": {"metric_l2": 0.5, "metric_kl": 0.5, "bins_30": 0.5, "bins_100": 0.5, "threshold_30": 0.296875, "threshold_70": 0.703125, "early_layers": 0.5}}, {"seed": 2, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 11.970207214355469}, "validation": {"reused_consistency": 0.40911018954394335, "random_consistency": 0.44254035532729297, "improvement": -0.03343016578334962}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.42857142857142855, "cka": 0.800586614460764}, "ablations": {"metric_l2": 0.5, "metric_kl": 0.5, "bins_30": 0.5, "bins_100": 0.5, "threshold_30": 0.296875, "threshold_70": 0.703125, "early_layers": 0.5}}, {"seed": 3, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 14.565059661865234}, "validation": {"reused_consistency": 0.5525746206306156, "random_consistency": 0.4437329850627699, "improvement": 0.10884163556784565}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.85, "cka": 0.8073483369841135}, "ablations": {"metric_l2": 0.5, "metric_kl": 0.5, "bins_30": 0.5, "bins_100": 0.5, "threshold_30": 0.296875, "threshold_70": 0.703125, "early_layers": 0.5}}, {"seed": 4, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 12.496102333068848}, "validation": {"reused_consistency": 0.49549339691493277, "random_consistency": 0.4855239988941096, "improvement": 0.009969398020823195}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.85, "cka": 0.7836259696451505}, "ablations": {"metric_l2": 0.5, "metric_kl": 0.5, "bins_30": 0.5, "bins_100": 0.5, "threshold_30": 0.296875, "threshold_70": 0.703125, "early_layers": 0.5}}, {"seed": 5, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 13.38287353515625}, "validation": {"reused_consistency": 0.3536358354199982, "random_consistency": 0.36970744156899643, "improvement": -0.01607160614899822}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.85, "cka": 0.8370653627722865}}, {"seed": 6, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 12.833906173706055}, "validation": {"reused_consistency": 0.4168093156426825, "random_consistency": 0.46523125103742613, "improvement": -0.048421935394743654}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.85, "cka": 0.7827305377199556}}, {"seed": 7, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 15.523811340332031}, "validation": {"reused_consistency": 0.44171669318003615, "random_consistency": 0.4839613346578674, "improvement": -0.042244641477831246}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.85, "cka": 0.7986558763242333}}, {"seed": 8, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 15.027814865112305}, "validation": {"reused_consistency": 0.4747581427151123, "random_consistency": 0.47477988771071367, "improvement": -2.1744995601369332e-05}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.85, "cka": 0.8002866414118993}}, {"seed": 9, "main": {"reuse_score": 0.5, "num_reused": 32, "avg_cost": 13.75434684753418}, "validation": {"reused_consistency": 0.3499714084086136, "random_consistency": 0.4741152441193742, "improvement": -0.1241438357107606}, "baselines": {"random": 0.1, "untrained": 0.5, "same_architecture": 0.85, "cka": 0.8047257034337463}}], "mean": {"reuse_score": 0.5, "same_architecture": 0.7235714285714285, "untrained": 0.5, "cka_similarity": 0.8057844402866564, "consistency_improvement": -0.022333800809029962}, "std": {"reuse_score": 0.0, "same_architecture": 0.19312283285885326, "untrained": 0.0, "cka_similarity": 0.017974089881933598, "consistency_improvement": 0.059001300387570565}, "p_values": {"vs_random": 0.0, "vs_untrained": NaN, "same_vs_cross": 0.0070155881263582}, "effect_sizes": {"vs_random": 400000.00000000006, "vs_untrained": 0.0}, "confidence_intervals": {"reuse_score_95ci": [0.5, 0.5]}, "ablation_results": {"metric_l2": 0.5, "metric_kl": 0.5, "bins_30": 0.5, "bins_100": 0.5, "threshold_30": 0.296875, "threshold_70": 0.703125, "early_layers": 0.5}, "convergence_status": "CONVERGED", "signal_detected": false, "total_runtime_minutes": 74.51847698291142}
