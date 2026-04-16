@@ -1,0 +1,73 @@
+Using device: cpu
+
+=== Running experiment with seed 0 ===
+
+Training CNN...
+Epoch 0: Train Loss: 3.3874, Val Loss: 0.2127
+Epoch 3: Train Loss: 0.3659, Val Loss: 0.1524
+Epoch 6: Train Loss: 0.1255, Val Loss: 0.1532
+Epoch 9: Train Loss: 0.0436, Val Loss: 0.2368
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 4.4089, Val Loss: 0.5035
+Epoch 3: Train Loss: 1.3670, Val Loss: 0.4116
+Epoch 6: Train Loss: 1.0819, Val Loss: 0.3832
+Epoch 9: Train Loss: 0.6806, Val Loss: 0.3738
+CONVERGED
+
+Measuring feature reuse...
+Feature reuse score: 0.562
+Number of reused pairs: 9
+Average transport cost: 1.280
+
+Computing baselines...
+Epoch 0: Train Loss: 2.7035, Val Loss: 0.1729
+Epoch 3: Train Loss: 0.2382, Val Loss: 0.2097
+Epoch 6: Train Loss: 0.1335, Val Loss: 0.1787
+Epoch 9: Train Loss: 0.6455, Val Loss: 0.3460
+CONVERGED
+
+Baselines:
+Random baseline: 0.100
+Same architecture (CNN-CNN): 0.786
+Cross architecture (CNN-ViT): 0.562
+Experiment completed in 29.3 seconds
+SIGNAL_DETECTED: 56.2% feature reuse between CNN and ViT
+
+=== Running experiment with seed 1 ===
+
+Training CNN...
+Epoch 0: Train Loss: 3.3055, Val Loss: 0.2580
+Epoch 3: Train Loss: 0.2899, Val Loss: 0.1307
+Epoch 6: Train Loss: 0.1179, Val Loss: 0.1858
+Epoch 9: Train Loss: 0.5420, Val Loss: 0.2856
+CONVERGED
+
+Training ViT...
+Epoch 0: Train Loss: 4.2138, Val Loss: 0.4860
+Epoch 3: Train Loss: 1.3820, Val Loss: 0.3491
+Epoch 6: Train Loss: 0.9657, Val Loss: 0.3617
+Epoch 9: Train Loss: 0.8016, Val Loss: 0.3748
+CONVERGED
+
+Measuring feature reuse...
+Feature reuse score: 0.375
+Number of reused pairs: 6
+Average transport cost: 1.288
+
+Computing baselines...
+Epoch 0: Train Loss: 2.8045, Val Loss: 0.2087
+Epoch 3: Train Loss: 0.4943, Val Loss: 0.1870
+Epoch 6: Train Loss: 0.0701, Val Loss: 0.1659
+Epoch 9: Train Loss: 0.0970, Val Loss: 0.1990
+CONVERGED
+
+Baselines:
+Random baseline: 0.100
+Same architecture (CNN-CNN): 1.000
+Cross architecture (CNN-ViT): 0.375
+Experiment completed in 31.3 seconds
+SIGNAL_DETECTED: 37.5% feature reuse between CNN and ViT
+
+Total experiment time: 60.6 seconds

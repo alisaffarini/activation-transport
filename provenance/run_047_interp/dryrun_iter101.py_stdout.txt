@@ -1,0 +1,6 @@
+Using device: cpu
+
+Validating metric on synthetic data...
+Identical features - Reuse: 0.000, Cost: 0.000
+DRY_RUN_WARNING: Pipeline completed but no RESULTS: line was printed!
+DRY_RUN_WARNING: The post-processing/output stage may be broken.

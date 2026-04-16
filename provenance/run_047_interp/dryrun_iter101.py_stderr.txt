@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/alisaffarini/burn-tokens/research/runs/run_047_interp/dryrun_iter101.py", line 575, in <module>
+    run_experiment(num_seeds=2)
+  File "/Users/alisaffarini/burn-tokens/research/runs/run_047_interp/dryrun_iter101.py", line 355, in run_experiment
+    validate_metric()
+  File "/Users/alisaffarini/burn-tokens/research/runs/run_047_interp/dryrun_iter101.py", line 250, in validate_metric
+    assert reuse > 0.8, f"Identical features should have high reuse, got {reuse}"
+           ^^^^^^^^^^^
+AssertionError: Identical features should have high reuse, got 0.0

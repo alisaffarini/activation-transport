@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/alisaffarini/burn-tokens/research/runs/run_047_interp/experiment_iter2.py", line 419, in <module>
+    main()
+  File "/Users/alisaffarini/burn-tokens/research/runs/run_047_interp/experiment_iter2.py", line 377, in main
+    result = run_experiment(seed)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alisaffarini/burn-tokens/research/runs/run_047_interp/experiment_iter2.py", line 278, in run_experiment
+    reuse_score, reused_pairs, avg_cost = measure_feature_reuse_fast(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alisaffarini/burn-tokens/research/runs/run_047_interp/experiment_iter2.py", line 217, in measure_feature_reuse_fast
+    row_ind, col_ind = ot.emd(np.ones(n2)/n2, np.ones(n2)/n2, padded_cost)
+    ^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)

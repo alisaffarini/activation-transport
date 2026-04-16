@@ -1,0 +1,203 @@
+Using device: cpu
+Loading MNIST dataset...
+
+==================================================
+SEED 0
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 45.1%, Val Acc: 80.0%
+Epoch 2: Train Acc: 82.8%, Val Acc: 88.8%
+Epoch 3: Train Acc: 88.2%, Val Acc: 90.4%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 74.1%, Val Acc: 80.6%
+Epoch 2: Train Acc: 84.2%, Val Acc: 85.4%
+Epoch 3: Train Acc: 86.9%, Val Acc: 88.2%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 1
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 50.4%, Val Acc: 78.7%
+Epoch 2: Train Acc: 85.0%, Val Acc: 89.8%
+Epoch 3: Train Acc: 88.5%, Val Acc: 92.5%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 73.0%, Val Acc: 82.9%
+Epoch 2: Train Acc: 84.9%, Val Acc: 82.0%
+Epoch 3: Train Acc: 85.6%, Val Acc: 86.0%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 2
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 41.9%, Val Acc: 75.4%
+Epoch 2: Train Acc: 82.4%, Val Acc: 84.5%
+Epoch 3: Train Acc: 87.5%, Val Acc: 89.8%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 74.8%, Val Acc: 84.4%
+Epoch 2: Train Acc: 84.5%, Val Acc: 84.9%
+Epoch 3: Train Acc: 85.2%, Val Acc: 84.4%
+CONVERGED
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 3
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 37.2%, Val Acc: 65.4%
+Epoch 2: Train Acc: 80.3%, Val Acc: 86.7%
+Epoch 3: Train Acc: 88.0%, Val Acc: 83.5%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 75.0%, Val Acc: 81.4%
+Epoch 2: Train Acc: 84.8%, Val Acc: 85.2%
+Epoch 3: Train Acc: 86.7%, Val Acc: 84.2%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 4
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 44.9%, Val Acc: 80.1%
+Epoch 2: Train Acc: 83.8%, Val Acc: 89.7%
+Epoch 3: Train Acc: 89.3%, Val Acc: 91.7%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 74.2%, Val Acc: 82.6%
+Epoch 2: Train Acc: 82.9%, Val Acc: 84.7%
+Epoch 3: Train Acc: 86.3%, Val Acc: 85.7%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 5
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 45.4%, Val Acc: 67.0%
+Epoch 2: Train Acc: 83.2%, Val Acc: 88.6%
+Epoch 3: Train Acc: 89.6%, Val Acc: 89.8%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 73.1%, Val Acc: 80.9%
+Epoch 2: Train Acc: 84.7%, Val Acc: 85.6%
+Epoch 3: Train Acc: 87.4%, Val Acc: 87.7%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 6
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 44.3%, Val Acc: 71.9%
+Epoch 2: Train Acc: 80.1%, Val Acc: 87.4%
+Epoch 3: Train Acc: 86.2%, Val Acc: 87.4%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 74.2%, Val Acc: 83.9%
+Epoch 2: Train Acc: 84.9%, Val Acc: 84.0%
+Epoch 3: Train Acc: 86.1%, Val Acc: 85.6%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 7
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 45.9%, Val Acc: 75.1%
+Epoch 2: Train Acc: 83.0%, Val Acc: 89.5%
+Epoch 3: Train Acc: 90.0%, Val Acc: 91.4%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 74.2%, Val Acc: 84.0%
+Epoch 2: Train Acc: 85.4%, Val Acc: 84.9%
+Epoch 3: Train Acc: 87.3%, Val Acc: 84.6%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 8
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 44.6%, Val Acc: 72.7%
+Epoch 2: Train Acc: 83.1%, Val Acc: 87.4%
+Epoch 3: Train Acc: 88.7%, Val Acc: 83.3%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 74.2%, Val Acc: 81.0%
+Epoch 2: Train Acc: 83.1%, Val Acc: 82.7%
+Epoch 3: Train Acc: 86.6%, Val Acc: 85.0%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+SEED 9
+==================================================
+Training CNN...
+Epoch 1: Train Acc: 42.3%, Val Acc: 76.1%
+Epoch 2: Train Acc: 82.4%, Val Acc: 81.2%
+Epoch 3: Train Acc: 87.4%, Val Acc: 87.7%
+NOT_CONVERGED: Reached max_epochs
+Training ViT...
+Epoch 1: Train Acc: 74.0%, Val Acc: 83.1%
+Epoch 2: Train Acc: 85.8%, Val Acc: 83.1%
+Epoch 3: Train Acc: 85.3%, Val Acc: 86.2%
+NOT_CONVERGED: Reached max_epochs
+Extracting features...
+Computing reuse...
+Reuse score: 0.0000
+
+==================================================
+BASELINES
+==================================================
+Computing random baseline...
+Random baseline: 0.0000
+
+Same architecture ablation...
+Epoch 1: Train Acc: 33.3%, Val Acc: 63.4%
+Epoch 2: Train Acc: 74.5%, Val Acc: 82.1%
+Epoch 3: Train Acc: 85.0%, Val Acc: 84.7%
+NOT_CONVERGED: Reached max_epochs
+Epoch 1: Train Acc: 47.5%, Val Acc: 77.5%
+Epoch 2: Train Acc: 85.2%, Val Acc: 88.2%
+Epoch 3: Train Acc: 89.6%, Val Acc: 87.8%
+NOT_CONVERGED: Reached max_epochs
+Same architecture score: 0.0000
+
+==================================================
+SUMMARY
+==================================================
+Mean reuse: 0.0000 ± 0.0000
+Random baseline: 0.0000
+Same architecture: 0.0000
+p-value vs random: nan
+p-value vs 30%: 1.0000
+
+NO_SIGNAL: No significant feature reuse detected
+
+RESULTS: {"mean": 0.0, "std": 0.0, "per_seed_results": [{"seed": 0, "reuse_score": 0.0, "cnn_acc": 90.4, "vit_acc": 88.2, "converged": false}, {"seed": 1, "reuse_score": 0.0, "cnn_acc": 92.5, "vit_acc": 86.0, "converged": false}, {"seed": 2, "reuse_score": 0.0, "cnn_acc": 89.8, "vit_acc": 84.4, "converged": false}, {"seed": 3, "reuse_score": 0.0, "cnn_acc": 83.5, "vit_acc": 84.2, "converged": false}, {"seed": 4, "reuse_score": 0.0, "cnn_acc": 91.7, "vit_acc": 85.7, "converged": false}, {"seed": 5, "reuse_score": 0.0, "cnn_acc": 89.8, "vit_acc": 87.7, "converged": false}, {"seed": 6, "reuse_score": 0.0, "cnn_acc": 87.4, "vit_acc": 85.6, "converged": false}, {"seed": 7, "reuse_score": 0.0, "cnn_acc": 91.4, "vit_acc": 84.6, "converged": false}, {"seed": 8, "reuse_score": 0.0, "cnn_acc": 83.3, "vit_acc": 85.0, "converged": false}, {"seed": 9, "reuse_score": 0.0, "cnn_acc": 87.7, "vit_acc": 86.2, "converged": false}], "p_values": {"vs_random": NaN, "vs_30pct": 1.0}, "ablation_results": {"same_architecture": 0.0}, "convergence_status": [false, false, false, false, false, false, false, false, false, false], "baselines": {"random": 0.0}, "signal_detected": false, "runtime_seconds": 28.901768922805786}
+DRY_RUN_OK: Full pipeline validated (train → analyze → output)
