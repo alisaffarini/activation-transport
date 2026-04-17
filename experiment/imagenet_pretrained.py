@@ -122,18 +122,8 @@ def main():
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
 
-    print("Loading ImageNet validation set...")
-    try:
-        val_dataset = torchvision.datasets.ImageNet('/workspace/imagenet', split='val', transform=transform)
-    except:
-        # Try downloading ImageNet-1k from HuggingFace or use a subset
-        print("ImageNet not found at /workspace/imagenet. Trying ImageFolder at /workspace/imagenet/val...")
-        try:
-            val_dataset = torchvision.datasets.ImageFolder('/workspace/imagenet/val', transform=transform)
-        except:
-            print("ERROR: ImageNet validation set not found. Please download it to /workspace/imagenet/val/")
-            print("You can use: huggingface-cli download --repo-type dataset ILSVRC/imagenet-1k --local-dir /workspace/imagenet")
-            return
+    print("Loading ImageNet-V2 validation set...")
+    val_dataset = torchvision.datasets.ImageFolder('/workspace/imagenet_v2/imagenetv2-matched-frequency-format-val', transform=transform)
 
     print(f"Validation set size: {len(val_dataset)}")
 
