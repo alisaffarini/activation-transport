@@ -1,67 +1,25 @@
-\documentclass[11pt]{article}
-
-% Page layout
-\usepackage[margin=1in]{geometry}
-
-% Typography
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{microtype}
-
-% Math
-\usepackage{amsmath,amssymb,amsfonts}
-
-% Tables and figures
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{tabularx}
-
-% References and links
-\usepackage[numbers,sort&compress]{natbib}
+\documentclass{article}
+\usepackage{iclr2025_conference,times}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue!70!black,citecolor=blue!70!black,urlcolor=blue!70!black}
-
-% Colors
-\usepackage{xcolor}
-
-% Compact lists
-\usepackage{enumitem}
-\setlist{nosep,leftmargin=*}
-
-% Caption styling
-\usepackage{caption}
-\captionsetup{font=small,labelfont=bf,skip=6pt}
-
-% Better float placement
-\usepackage{placeins}
-
-% For placeholder figures
+\usepackage{url}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
 \usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{subcaption}
 
-% Section styling
-\usepackage{titlesec}
-\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex}{1ex plus 0.3ex}
-\titlespacing*{\subsection}{0pt}{1.2ex plus 0.4ex}{0.8ex plus 0.2ex}
+\title{Activation Transport Reveals Fundamental Representation\\Divergence Between Convolutional and Attention-Based\\Architectures That CKA Fails to Detect}
 
-% Tight spacing
-\setlength{\parskip}{0.4ex plus 0.2ex}
-\setlength{\parindent}{1.5em}
-\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
-\setlength{\floatsep}{8pt plus 2pt minus 2pt}
-\setlength{\intextsep}{8pt plus 2pt minus 2pt}
-
-\title{\textbf{Activation Transport Reveals Fundamental Representation\\Divergence Between Convolutional and Attention-Based\\Architectures That CKA Fails to Detect}}
-\author{Ali Saffarini\\Harvard University\\\texttt{asaffarini@college.harvard.edu}}
-\date{}
+\author{Ali Saffarini \\
+Harvard University \\
+\texttt{asaffarini@college.harvard.edu} \\
+}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-\noindent
-Do neural networks with different architectural inductive biases learn the same features when trained on identical tasks? We introduce Activation Transport (AT), a metric based on optimal transport that quantifies feature-level correspondence between architectures by solving a channel-wise assignment problem on activation distributions. Applying AT to compare convolutional networks (ResNet-18), vision transformers (ViT-Small), and MLP-Mixers trained on CIFAR-10 (10 seeds) and CIFAR-100 (10 seeds), we find that cross-architecture AT scores are an order of magnitude larger than same-architecture scores. On CIFAR-10, ResNet vs.\ ViT yields AT $= 0.250 \pm 0.007$ vs.\ same-architecture AT $= 0.028 \pm 0.004$ (ratio $\approx 9\times$). On CIFAR-100, this gap widens dramatically: cross-architecture AT $= 0.254$ vs.\ same-architecture AT $= 0.010$ (ratio $\approx 26\times$; $t = 11.00$, $p = 8.1 \times 10^{-16}$). Crucially, Centered Kernel Alignment (CKA)---the standard metric for representation comparison---reports $0.63$--$0.66$ for the same cross-architecture pairs on CIFAR-10, suggesting moderate similarity and failing to detect the divergence. A layer-wise analysis reveals that representational divergence between ResNet and ViT \emph{increases monotonically with depth}, from AT $= 0.034$ at the earliest layers to AT $= 0.255$ at the final representation layer, suggesting that architectural inductive biases compound through the network rather than converging. Among attention-based architectures, ViT and MLP-Mixer show substantially lower divergence (AT $= 0.088$ on CIFAR-10, $0.117$ on CIFAR-100), suggesting a shared representational family distinct from CNNs. These results establish AT as a more sensitive metric than CKA for detecting architectural representation divergence and have implications for transfer learning, model ensembling, and the universality assumptions underlying mechanistic interpretability.
+Do neural networks with different architectural inductive biases learn the same features when trained on identical tasks?\footnote{Code and data: \url{https://github.com/alisaffarini/activation-transport}} We introduce Activation Transport (AT), a metric based on optimal transport that quantifies feature-level correspondence between architectures by solving a channel-wise assignment problem on activation distributions. Applying AT to compare convolutional networks (ResNet-18), vision transformers (ViT-Small), and MLP-Mixers trained on CIFAR-10 (10 seeds) and CIFAR-100 (10 seeds), we find that cross-architecture AT scores are an order of magnitude larger than same-architecture scores. On CIFAR-10, ResNet vs.\ ViT yields AT $= 0.250 \pm 0.007$ vs.\ same-architecture AT $= 0.028 \pm 0.004$ (ratio $\approx 9\times$). On CIFAR-100, this gap widens dramatically: cross-architecture AT $= 0.254$ vs.\ same-architecture AT $= 0.010$ (ratio $\approx 26\times$; $t = 11.00$, $p = 8.1 \times 10^{-16}$). Crucially, Centered Kernel Alignment (CKA)---the standard metric for representation comparison---reports $0.63$--$0.66$ for the same cross-architecture pairs on CIFAR-10, suggesting moderate similarity and failing to detect the divergence. A layer-wise analysis reveals that representational divergence between ResNet and ViT \emph{increases monotonically with depth}, from AT $= 0.034$ at the earliest layers to AT $= 0.255$ at the final representation layer, suggesting that architectural inductive biases compound through the network rather than converging. Among attention-based architectures, ViT and MLP-Mixer show substantially lower divergence (AT $= 0.088$ on CIFAR-10, $0.117$ on CIFAR-100), suggesting a shared representational family distinct from CNNs. These results establish AT as a more sensitive metric than CKA for detecting architectural representation divergence and have implications for transfer learning, model ensembling, and the universality assumptions underlying mechanistic interpretability.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
