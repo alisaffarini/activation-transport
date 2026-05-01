@@ -1,0 +1,108 @@
+{
+  "n_seeds": 3,
+  "n_samples": 5000,
+  "dataset": "ImageNet-V2 matched-frequency",
+  "models": {
+    "resnet": "resnet50",
+    "vit": "vit_base_patch16_224",
+    "mixer": "mixer_b16_224"
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "accs": {
+        "resnet": 0.6946,
+        "vit": 0.7008,
+        "mixer": 0.596
+      },
+      "at": {
+        "resnet_vs_vit": 2.9660155128263237,
+        "resnet_vs_mixer": 2.6107631629995747,
+        "vit_vs_mixer": 0.4900808854962511
+      },
+      "cka": {
+        "resnet_vs_vit": 0.47204382779904525,
+        "resnet_vs_mixer": 0.44996031428695504,
+        "vit_vs_mixer": 0.43278255727960935
+      },
+      "layer_wise_at": {
+        "layer1_vs_blocks.2": 1.3864537564106831,
+        "layer2_vs_blocks.5": 1.763681826764206,
+        "layer3_vs_blocks.8": 2.1595482410139657,
+        "layer4_vs_blocks.11": 2.9660155128263237
+      }
+    },
+    {
+      "seed": 43,
+      "accs": {
+        "resnet": 0.6912,
+        "vit": 0.6874,
+        "mixer": 0.58
+      },
+      "at": {
+        "resnet_vs_vit": 2.9650735339186434,
+        "resnet_vs_mixer": 2.6092172100871593,
+        "vit_vs_mixer": 0.49128890607599324
+      },
+      "cka": {
+        "resnet_vs_vit": 0.47065448165986645,
+        "resnet_vs_mixer": 0.44140924053040814,
+        "vit_vs_mixer": 0.43075896607302133
+      },
+      "layer_wise_at": {
+        "layer1_vs_blocks.2": 1.3845147771329693,
+        "layer2_vs_blocks.5": 1.7644490055436335,
+        "layer3_vs_blocks.8": 2.1594142315968265,
+        "layer4_vs_blocks.11": 2.9650735339186434
+      }
+    },
+    {
+      "seed": 44,
+      "accs": {
+        "resnet": 0.6882,
+        "vit": 0.693,
+        "mixer": 0.579
+      },
+      "at": {
+        "resnet_vs_vit": 2.9656246846295624,
+        "resnet_vs_mixer": 2.6100208984374995,
+        "vit_vs_mixer": 0.49086336596702457
+      },
+      "cka": {
+        "resnet_vs_vit": 0.4668541029646955,
+        "resnet_vs_mixer": 0.436935595436205,
+        "vit_vs_mixer": 0.416159943716022
+      },
+      "layer_wise_at": {
+        "layer1_vs_blocks.2": 1.3829641926484766,
+        "layer2_vs_blocks.5": 1.7636862588763693,
+        "layer3_vs_blocks.8": 2.157991812953766,
+        "layer4_vs_blocks.11": 2.9656246846295624
+      }
+    }
+  ],
+  "at_resnet_vs_vit": {
+    "mean": 2.96557124379151,
+    "std": 0.000473257866292235
+  },
+  "cka_resnet_vs_vit": {
+    "mean": 0.4698508041412024,
+    "std": 0.002686584100595249
+  },
+  "at_resnet_vs_mixer": {
+    "mean": 2.610000423841411,
+    "std": 0.0007731798035807023
+  },
+  "cka_resnet_vs_mixer": {
+    "mean": 0.4427683834178561,
+    "std": 0.006617875590145672
+  },
+  "at_vit_vs_mixer": {
+    "mean": 0.49074438584642294,
+    "std": 0.0006127361847434007
+  },
+  "cka_vit_vs_mixer": {
+    "mean": 0.4265671556895509,
+    "std": 0.009069524581769295
+  }
+}

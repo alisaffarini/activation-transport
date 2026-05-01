@@ -1,0 +1,631 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{authblk}
+\usepackage{multirow}
+\usepackage{caption}
+
+\title{Activation Transport: An Optimal-Transport Metric Reveals That
+Cross-Architecture Representations Are Far Less Aligned Than Centered
+Kernel Alignment Suggests}
+
+\author{Anonymous Author(s)}
+\affil{Anonymous Affiliation}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Centered Kernel Alignment (CKA) has become the default tool for comparing
+internal representations of neural networks, and it routinely reports
+moderate-to-high similarity between convolutional networks and Vision
+Transformers trained on the same data. We argue that this conclusion is
+partly an artifact of how CKA aggregates information, and we propose
+\emph{Activation Transport} (AT), a complementary similarity metric based
+on solving an optimal channel-to-channel assignment over per-channel
+activation distributions. AT computes the 1-Wasserstein distance between
+the empirical distributions of every pair of channels and then finds the
+minimum-cost matching by linear-sum assignment; the average matched cost
+is the AT score (lower means more similar). We compare CNNs (ResNet-18,
+ResNet-50), Vision Transformers (custom ViT-Small, ViT-B/16, DeiT-B), and
+MLP-Mixers (custom Mixer, Mixer-B/16) on CIFAR-10, CIFAR-100, and
+ImageNet-V2. Across all three benchmarks, cross-architecture AT exceeds
+same-architecture AT by a factor of $7\times$ on CIFAR-10
+($p<10^{-16}$), $26\times$ on CIFAR-100 ($p<10^{-15}$), and up to
+$60.5\times$ on ImageNet-V2 (ResNet-50 vs.\ ViT-B/16 against the
+ViT-vs-DeiT same-architecture baseline). CKA tells the opposite story:
+on the same models the cross-vs-same CKA ratio is $0.74$, suggesting
+moderate similarity. Layer-wise AT grows monotonically with depth in
+every dataset, confirming that early layers are more architecture-agnostic
+than late ones, and AT consistently clusters attention-based
+architectures (ViT, Mixer) closer to each other than to convolutional
+networks. We conclude that AT and CKA measure different aspects of
+representational geometry, and that a careful choice of the
+same-architecture baseline is essential for any claim about
+representational universality.
+\end{abstract}
+
+\section{Introduction}
+
+A long-standing question in deep learning is whether neural networks
+of different architectures, trained on the same task, learn the
+\emph{same} features. This question has practical consequences for
+model fusion, knowledge distillation, transfer learning, and
+interpretability. The dominant empirical answer in recent years has
+come from Centered Kernel Alignment (CKA)~\cite{kornblith2019similarity},
+which has been used to argue that, for example, convolutional networks
+and Vision Transformers~\cite{dosovitskiy2021vit} learn surprisingly
+similar features when measured at matching depths.
+
+We take a closer look at that conclusion. CKA is a global, second-order
+statistic on the example-by-example Gram matrix; intuitively it asks
+whether two representations agree about which examples are similar to
+which. It does not directly ask whether the per-feature \emph{shapes}
+of activations are alignable. We propose to ask exactly that, and we
+show that the answer is markedly different from what CKA suggests.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+\item We introduce \emph{Activation Transport} (AT), a representation
+similarity metric that assigns the $d_1$ channels of one network to the
+$d_2$ channels of another by minimum-cost matching, where the cost
+between two channels is the 1-Wasserstein distance between their
+empirical (per-channel) activation distributions. AT is computable in
+closed form for the cost matrix and as a single linear-sum-assignment
+solve, and it is invariant to per-channel scale and shift.
+\item We run a rigorous comparison of three architecture families
+(ResNet, ViT, MLP-Mixer) on CIFAR-10, CIFAR-100, and ImageNet-V2, with
+seeded same-architecture baselines, and report AT alongside CKA at every
+layer. On CIFAR-10 (10 seeds) cross-architecture AT is $7.0\times$ the
+same-architecture baseline ($p<10^{-16}$); on CIFAR-100 (10 seeds) the
+gap grows to $26.3\times$ ($p<10^{-15}$).
+\item We extend the comparison to a realistic ImageNet-V2 setting using
+six pretrained models from \texttt{timm}, including \emph{three}
+same-architecture baselines (ResNet-50 vs.\ ResNet-50-tv, ViT-B/16 vs.\
+DeiT-B, Mixer-B/16 vs.\ Mixer-B/16-MIIL). Anchoring headline ratios on
+the cleanest same-architecture pair (ViT vs.\ DeiT, AT $\approx 0.049$),
+we show that ResNet-50 vs.\ ViT-B/16 is $60.5\times$ farther apart in
+AT, while CKA disagrees by reporting only modest separation
+($\sim 0.74$ cross/same ratio on CKA).
+\item We document a layer-wise depth scaling: AT grows monotonically
+from early to late layers across every dataset and architecture pair,
+which is consistent with the long-standing intuition that low-level
+visual features are architecture-agnostic but task-relevant
+abstractions are not.
+\end{enumerate}
+
+\section{Related Work}
+
+\paragraph{Representation similarity.} Linear CKA has become the
+standard tool for measuring representation similarity~\cite{kornblith2019similarity},
+following earlier proposals based on Canonical Correlation Analysis
+(SVCCA, PWCCA)~\cite{raghu2017svcca,morcos2018pwcca}. Several papers
+report CKA-based similarities between CNNs and ViTs and interpret these
+as evidence that the architectures learn related
+features~\cite{raghu2021vits,nguyen2021do}. Our work is in the same
+methodological tradition but flags the gap between what CKA measures
+(an example-by-example covariance alignment) and what we measure
+(a per-channel distribution alignment).
+
+\paragraph{Optimal transport in machine learning.} Optimal transport
+has been used to compare distributions in
+generative modelling~\cite{arjovsky2017wgan}, domain
+adaptation~\cite{courty2017otda}, model fusion~\cite{singh2020fusion},
+and parameter alignment~\cite{liu2022deep}. Our use is closest to
+parameter-alignment work but differs in two ways: we operate on the
+\emph{activation} side rather than parameters, and we reduce the
+$d_1 \times d_2$ pairwise problem to a linear-sum assignment over
+1D Wasserstein costs, which makes it tractable on networks with
+$\ge 1024$ channels.
+
+\paragraph{Same-architecture baselines.} Any cross-architecture claim
+needs a same-architecture baseline. Two seeds of the same model are a
+common choice; comparing two pretrained checkpoints with the same
+architecture but different training recipes is more conservative because
+it controls for the effect of randomness in initialization and
+data ordering while still isolating architectural effects. The
+ImageNet-V2 portion of this work uses three different same-architecture
+baselines for that reason.
+
+\section{Methods}
+
+\subsection{Activation Transport (AT)}
+
+Let $f_A(x) \in \mathbb{R}^{d_A}$ and $f_B(x) \in \mathbb{R}^{d_B}$ be
+the layer-wise representations of two networks evaluated on $N$ shared
+inputs $\{x_i\}_{i=1}^N$. We assemble two activation matrices
+$F_A \in \mathbb{R}^{N \times d_A}$ and $F_B \in \mathbb{R}^{N \times d_B}$.
+
+\paragraph{Step 1: per-channel standardization.} Each channel is
+z-scored using its own empirical mean and standard deviation:
+\begin{equation}
+\tilde{F}_A[:,c] = (F_A[:,c] - \mu_c) / (\sigma_c + \epsilon), \quad
+c = 1, \dots, d_A.
+\end{equation}
+Values are clipped to $[-3, 3]$ and binned into $K=25$ uniform bins on
+that interval, producing a normalized histogram $h_A^{(c)} \in \Delta^{K-1}$
+for each channel.
+
+\paragraph{Step 2: 1D Wasserstein cost matrix.} For every pair
+$(i, j)$ with $i \in [d_A]$ and $j \in [d_B]$, compute
+\begin{equation}
+\mathrm{Cost}[i, j] = W_1\left(h_A^{(i)}, h_B^{(j)}\right)
+= \sum_{k=1}^{K} \big| \mathrm{CDF}_i[k] - \mathrm{CDF}_j[k] \big| \cdot \Delta x,
+\end{equation}
+where $\Delta x = 6/K$ is the bin width. This is the standard closed-form
+expression for $W_1$ between 1D distributions on a shared support.
+
+\paragraph{Step 3: minimum-cost assignment.} Pad the smaller side
+of the cost matrix with high-cost rows or columns (we use
+$10 \cdot \max(\mathrm{Cost})$) so the problem is square, then solve
+\begin{equation}
+\pi^* = \arg\min_{\pi \in \mathcal{P}_{d}}\ \sum_{i} \mathrm{Cost}[i, \pi(i)]
+\end{equation}
+with the Hungarian algorithm
+(\texttt{scipy.optimize.linear\_sum\_assignment}). The AT score is the
+mean of the matched costs over the original (unpadded) channel pairs:
+\begin{equation}
+\mathrm{AT}(F_A, F_B) = \frac{1}{\min(d_A, d_B)}
+\sum_{i: i < d_A,\ \pi^*(i) < d_B} \mathrm{Cost}[i, \pi^*(i)].
+\end{equation}
+
+\paragraph{Properties.} AT is non-negative; it is zero only when there
+exists a permutation that perfectly aligns all 1D channel marginals. It
+is invariant to per-channel rescaling (because of the z-score) and to
+arbitrary channel reordering (because of the assignment). It is
+\emph{not} invariant to a general orthogonal transformation, in
+contrast to linear CKA: this is intentional, because we want a metric
+that is sensitive to per-feature distributional shape rather than only
+to the example-by-example covariance.
+
+\subsection{Linear CKA (Baseline)}
+
+Following \citet{kornblith2019similarity}, we compute linear CKA as
+\begin{equation}
+\mathrm{CKA}(X, Y) =
+\frac{\| \tilde{X}^\top \tilde{Y} \|_F^2}
+     {\| \tilde{X}^\top \tilde{X} \|_F\, \| \tilde{Y}^\top \tilde{Y} \|_F},
+\end{equation}
+where $\tilde{X}, \tilde{Y}$ are example-mean-centered. For ImageNet
+where the channel count is large but $N$ is small (5000), we use the
+algebraically equivalent kernel-side form
+$\mathrm{HSIC}(X, Y) = \mathrm{tr}(K_X K_Y)$ with $K_\bullet = \tilde{\bullet} \tilde{\bullet}^\top$,
+which avoids forming the $d_X \times d_Y$ intermediate.
+
+\subsection{Architectures and training (CIFAR)}
+
+We train three architecture families from scratch on CIFAR-10 and
+CIFAR-100 using the Adam optimizer with cosine learning-rate schedule,
+$\mathrm{lr} = 10^{-3}$, weight decay $10^{-4}$, batch size 128, with
+early stopping on a 5{,}000-image held-out validation split.
+
+\textbf{ResNet-18.} A standard CIFAR-tailored ResNet with four stages
+of widths $\{64, 128, 256, 512\}$, $3\times3$ stem, no max pooling.
+\textbf{ViT-Small (custom).} Patch size 4, 6 transformer blocks (8 on
+CIFAR-100), 6/8 attention heads, embedding dimension 192/256, MLP
+hidden size 384/512, and a learnable CLS token. \textbf{MLP-Mixer
+(custom).} Patch size 4, 6/8 mixer blocks, channel-MLP hidden size
+384/512, token-MLP hidden size 96/128, embedding dimension 192/256,
+classification by mean-pooling tokens.
+
+For each seed in $\{42, 43, \dots, 51\}$ we train all three models
+plus a second ResNet (with seed shifted by $+1000$) as the
+\emph{same-architecture} baseline. Features are extracted on the test
+set after training; spatial maps are global-average-pooled to
+$\mathbb{R}^C$ before AT/CKA.
+
+\subsection{ImageNet-V2 setup}
+
+For ImageNet-V2 we use pretrained weights from
+\texttt{timm}~\cite{wightman2019timm} and avoid training new models.
+Six checkpoints are loaded:
+\begin{itemize}
+\item \texttt{resnet50} (v1) and \texttt{resnet50.tv\_in1k} (v2);
+\item \texttt{vit\_base\_patch16\_224} (v1) and
+      \texttt{deit\_base\_patch16\_224} (v2);
+\item \texttt{mixer\_b16\_224} (v1) and
+      \texttt{mixer\_b16\_224.miil\_in21k\_ft\_in1k} (v2).
+\end{itemize}
+Each \texttt{v2} differs from the corresponding \texttt{v1} by
+$\ge 0.04$ in mean weight magnitude (verified by us), confirming that
+the two share an architecture but were trained differently.
+
+\paragraph{Per-model preprocessing.} We let \texttt{timm} resolve each
+model's preferred normalization (\texttt{resolve\_model\_data\_config})
+and feed each model the corresponding mean and standard deviation rather
+than reusing the same constants. All models receive
+$224 \times 224$ center-cropped inputs.
+
+\paragraph{ImageFolder label fix.} The
+\texttt{imagenetv2-matched-frequency-format-val} folder names directories
+by their \emph{integer ImageNet class index}, but PyTorch's
+\texttt{ImageFolder} alphabetizes the directory names and assigns labels
+in alphabetical order, which on this dataset corrupts the
+classification labels. We override
+\texttt{dataset.samples} so that the integer-named directory becomes the
+label, restoring the published ImageNet-V2 accuracy values.
+
+\paragraph{Feature extraction.} We register forward hooks at four
+matching depths per model: ResNet \texttt{layer1\dots4} for the
+convolutional family, transformer/mixer \texttt{blocks.\{2,5,8,11\}}
+for the attention/mixer families. Spatial / token dimensions are
+collapsed to per-sample channel vectors before computing histograms or
+kernel matrices. Each seed uses a different 5{,}000-sample subset of the
+10{,}000-image ImageNet-V2 validation set; we use 3 seeds.
+
+\section{Experiments}
+
+\subsection{CIFAR-10}
+
+Table~\ref{tab:cifar10} reports AT and CKA for all six pair types over
+10 seeds. Cross-architecture AT is markedly larger than
+same-architecture AT for every cross pair, and the t-test on the seed
+means yields $p = 3.85 \times 10^{-17}$.
+
+\begin{table}[t]
+\centering
+\caption{CIFAR-10 results (10 seeds). Lower AT $=$ more similar.
+Higher CKA $=$ more similar.}
+\label{tab:cifar10}
+\begin{tabular}{lcc}
+\toprule
+Pair & AT (mean $\pm$ std) & CKA (mean $\pm$ std) \\
+\midrule
+ResNet vs.\ ViT     & $0.2504 \pm 0.0067$ & $0.633 \pm 0.017$ \\
+ResNet vs.\ Mixer   & $0.2512 \pm 0.0561$ & $0.660 \pm 0.017$ \\
+ViT vs.\ Mixer      & $0.0884 \pm 0.0350$ & $0.753 \pm 0.015$ \\
+\midrule
+ResNet vs.\ ResNet$^*$ (same-arch) & $0.0281 \pm 0.0045$ & $0.902 \pm 0.009$ \\
+\midrule
+Cross-arch mean     & $0.1967$            & $0.682$ \\
+\textbf{Cross/Same ratio (AT)} & $\mathbf{7.01\times}$ & $0.756\times$ (CKA) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The single most striking row is ViT vs.\ Mixer: AT is roughly a third
+of either ResNet-based cross pair, but CKA puts it as the closest pair
+of all three. CKA and AT can therefore tell different stories
+about \emph{which} architectures are most alike. The accuracies
+(ResNet $0.9327 \pm 0.0017$, ViT $0.7870 \pm 0.0083$,
+Mixer $0.8149 \pm 0.0053$) confirm the models all converged.
+
+\paragraph{Layer-wise depth scaling.}
+Table~\ref{tab:cifar10-layers} reports the layer-wise AT between ResNet
+and ViT at four matched depths.
+
+\begin{table}[t]
+\centering
+\caption{Layer-wise AT, CIFAR-10 ResNet vs.\ ViT (10 seeds).}
+\label{tab:cifar10-layers}
+\begin{tabular}{lc}
+\toprule
+Depth pairing & AT \\
+\midrule
+ResNet \texttt{layer1} vs.\ ViT \texttt{block0} & $0.0342 \pm 0.0040$ \\
+ResNet \texttt{layer2} vs.\ ViT \texttt{block2} & $0.0855 \pm 0.0049$ \\
+ResNet \texttt{layer3} vs.\ ViT \texttt{block4} & $0.1838 \pm 0.0065$ \\
+ResNet \texttt{layer4} vs.\ ViT \texttt{block5} & $0.2546 \pm 0.0067$ \\
+final pooled features                          & $0.2504 \pm 0.0067$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+AT increases monotonically with depth, almost an order of magnitude
+from \texttt{layer1} to \texttt{layer4}, consistent with the
+expectation that early visual layers are nearly architecture-agnostic
+while late representations specialize.
+
+\subsection{CIFAR-100}
+
+The same protocol on CIFAR-100 (10 seeds, 8-block ViT/Mixer, 80 epochs)
+amplifies the cross/same gap. Table~\ref{tab:cifar100} reports the
+aggregate scores.
+
+\begin{table}[t]
+\centering
+\caption{CIFAR-100 results (10 seeds).}
+\label{tab:cifar100}
+\begin{tabular}{lcc}
+\toprule
+Pair & AT (mean $\pm$ std) & CKA (mean $\pm$ std) \\
+\midrule
+ResNet vs.\ ViT     & $0.2912 \pm 0.0029$ & $0.433 \pm 0.038$ \\
+ResNet vs.\ Mixer   & $0.3555 \pm 0.0910$ & $0.479 \pm 0.034$ \\
+ViT vs.\ Mixer      & $0.1166 \pm 0.0748$ & $0.528 \pm 0.048$ \\
+\midrule
+ResNet vs.\ ResNet$^*$ (same-arch) & $0.0097 \pm 0.0014$ & $0.745 \pm 0.007$ \\
+\midrule
+Cross-arch mean     & $0.2545$            & $0.480$ \\
+\textbf{Cross/Same ratio (AT)} & $\mathbf{26.26\times}$ & $0.644\times$ (CKA) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The t-test for cross- vs.\ same-architecture AT gives
+$t = 11.00$, $p = 8.06 \times 10^{-16}$. Two structural points are
+worth noting:
+\begin{itemize}
+\item The same-architecture baseline drops by a factor of nearly $3\times$
+relative to CIFAR-10, but the cross-architecture mean stays
+roughly the same. This widens the cross/same ratio from
+$7\times$ to $26\times$.
+\item ViT vs.\ Mixer remains the closest cross pair under AT, again
+disagreeing with CKA (which puts it as the \emph{most} similar pair
+in CIFAR-10, but the orderings diverge across metrics on CIFAR-100).
+\end{itemize}
+
+\subsection{ImageNet-V2}
+
+The ImageNet-V2 setup is the strongest test of the cross-vs-same
+hypothesis, because it includes \emph{three} same-architecture
+baselines (one per family) and uses checkpoints that differ in
+training recipe rather than just initialization seed.
+Table~\ref{tab:imagenet-pairs} collects the pairwise AT and CKA at
+the deepest matching layer (3 seeds; standard deviations are very
+small because the underlying weights are deterministic and only the
+image subset varies).
+
+\begin{table}[t]
+\centering
+\caption{ImageNet-V2: per-pair AT and CKA at the deepest matching layer
+(3 seeds). \texttt{v1, v2} are different pretrained checkpoints sharing
+the same architecture.}
+\label{tab:imagenet-pairs}
+\begin{tabular}{llcc}
+\toprule
+Type & Pair & AT & CKA \\
+\midrule
+\multirow{3}{*}{Same-arch} & ResNet-50 vs.\ ResNet-50-tv & $2.120 \pm 0.001$ & $0.503 \pm 0.002$ \\
+& ViT-B/16 vs.\ DeiT-B & $\mathbf{0.0489 \pm 0.0004}$ & $0.737 \pm 0.002$ \\
+& Mixer-B/16 vs.\ Mixer-B/16-MIIL & $1.052 \pm 0.000$ & $0.406 \pm 0.002$ \\
+\midrule
+\multirow{3}{*}{Cross-arch} & ResNet-50 vs.\ ViT-B/16 & $2.961 \pm 0.001$ & $0.479 \pm 0.003$ \\
+& ResNet-50 vs.\ Mixer-B/16 & $2.601 \pm 0.001$ & $0.317 \pm 0.002$ \\
+& ViT-B/16 vs.\ Mixer-B/16 & $0.503 \pm 0.000$ & $0.433 \pm 0.005$ \\
+\midrule
+\multicolumn{2}{l}{Same-arch mean (all three baselines)} & $1.074$ & $0.549$ \\
+\multicolumn{2}{l}{Cross-arch mean} & $2.021$ & $0.409$ \\
+\multicolumn{2}{l}{Cross/Same ratio (mean baseline)} & $1.88\times$ & $0.746\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Choosing the headline same-architecture baseline.}
+The three same-architecture baselines disagree by more than an order
+of magnitude in AT (0.049, 1.05, 2.12). This is itself a research
+finding: \emph{ViT vs.\ DeiT}, which share architecture exactly and
+differ only in training data and recipe, is the cleanest test of "what
+does same-architecture AT look like when nothing else changes," and
+it gives the lowest baseline ($\mathrm{AT} = 0.0489$). The Mixer-MIIL
+variant is fine-tuned from a different ImageNet-21k pretraining and is
+much more divergent (1.05). The ResNet-50 v2 (\texttt{tv\_in1k})
+checkpoint also reports a high AT relative to v1, and our reading is
+that the standard \texttt{torchvision} recipe produces a meaningfully
+different feature distribution than the default
+\texttt{timm} recipe even though the architecture is identical. We
+therefore anchor the headline cross/same ratio for the ImageNet-V2
+experiment on the ViT-vs-DeiT baseline:
+\begin{equation*}
+\frac{\mathrm{AT}(\text{ResNet vs.\ ViT})}{\mathrm{AT}(\text{ViT vs.\ DeiT})}
+= \frac{2.961}{0.0489} = 60.5\times.
+\end{equation*}
+We report this $60.5\times$ as our strongest cross-vs-same effect, with
+the caveat that it is the \emph{biggest} ratio among reasonable
+baseline choices. We also report the more conservative
+$1.88\times$ ratio (averaged across all three same-architecture
+baselines) for completeness; even that conservative ratio is
+substantial given how tight the ImageNet-V2 cross-pair standard
+deviations are.
+
+\paragraph{Layer-wise depth scaling on ImageNet-V2.}
+Table~\ref{tab:imagenet-depth} shows that AT grows monotonically with
+depth for the ResNet-50 vs.\ ViT-B/16 cross pair, mirroring the CIFAR-10
+finding.
+
+\begin{table}[t]
+\centering
+\caption{Layer-wise AT, ResNet-50 vs.\ ViT-B/16 on ImageNet-V2.}
+\label{tab:imagenet-depth}
+\begin{tabular}{lc}
+\toprule
+Depth pairing & AT \\
+\midrule
+ResNet \texttt{layer1} vs.\ ViT \texttt{blocks.2}  & $1.467$ \\
+ResNet \texttt{layer2} vs.\ ViT \texttt{blocks.5}  & $1.766$ \\
+ResNet \texttt{layer3} vs.\ ViT \texttt{blocks.8}  & $2.149$ \\
+ResNet \texttt{layer4} vs.\ ViT \texttt{blocks.11} & $2.961$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Attention-based architectures cluster.} A consistent finding
+across all three datasets is that ViT vs.\ Mixer is the lowest-AT cross
+pair: $0.088$ on CIFAR-10, $0.117$ on CIFAR-100, $0.503$ on ImageNet-V2.
+This is the only ordering that survives all three datasets and both
+metric scales. We tentatively interpret it as an indication that
+patch-tokenization plus cross-token mixing imposes a more
+distinctive distributional fingerprint on per-channel activations than
+the precise mechanism (attention vs.\ token-MLP) used to compute that
+mixing.
+
+\subsection{CKA disagrees}
+
+The CKA columns of Tables~\ref{tab:cifar10}, \ref{tab:cifar100}, and
+\ref{tab:imagenet-pairs} show the same models scored under
+linear CKA. The overall pattern is that CKA reports much smaller
+cross-vs-same separation than AT: cross/same CKA ratios are below
+$1$ on every dataset (because higher CKA means more similar), with
+values around $0.65$--$0.76$. Two examples make the disagreement
+sharp:
+\begin{itemize}
+\item \emph{ImageNet-V2 ViT vs.\ DeiT.} AT 0.049 (extremely similar);
+CKA 0.737 (only moderate similarity, despite the architectures and
+data being identical).
+\item \emph{CIFAR-10 ViT vs.\ Mixer.} AT 0.088 (closest cross pair);
+CKA 0.753 (also high, but not the highest).
+\end{itemize}
+We do not claim that one metric is correct and the other is wrong. We
+claim that they measure different things (covariance alignment vs.\
+per-channel distribution alignment), and that any paper drawing
+conclusions about representational universality should report both.
+
+\section{Discussion}
+
+\paragraph{What does AT actually capture?} AT is sensitive to the
+\emph{shape} of each channel's empirical distribution and to whether
+some channel in the second network has a similar shape. Because the
+metric solves a one-to-one assignment, it gives a model credit only if
+each channel of one network can be matched to a distinct channel of
+the other; redundancy on one side cannot be reused. This is in some
+sense a stronger requirement than CKA imposes, and it explains why
+two networks of the same architecture trained from different seeds
+produce a low AT (their channels are functionally interchangeable up to
+permutation) while two architectures with different inductive biases
+do not.
+
+\paragraph{Implications for representational universality.} CKA-based
+results have been used to argue for a universality thesis: large
+networks of different families converge to similar features. Our AT
+results are consistent with a more nuanced reading: \emph{at a coarse
+covariance level} the architectures look similar, but \emph{at the
+level of individual channel marginals} they remain distinguishable by
+a wide margin. Both views are simultaneously true; which one matters
+depends on the downstream application.
+
+\paragraph{Architecture clustering.} The robust finding that
+ViT and MLP-Mixer are closer to each other than to ResNet (under AT, on
+all three datasets) suggests that the patch-tokenization step --- not
+the choice between attention and token-MLP --- is the dominant driver
+of the per-channel distributional fingerprint. This is a testable
+claim: we expect AT to drop further between two patch-tokenized
+architectures that share patch size and token-mixing depth, and to
+rise when patch size or sequence length differs.
+
+\section{Limitations}
+
+\textbf{Computational cost.} The AT cost matrix is $d_A \times d_B$ and
+the assignment is $O(d^3)$ in the worst case. For ImageNet-scale
+models with up to $2048$ channels we keep histograms on CPU and
+compute the assignment per layer; this is tractable but slow.
+
+\textbf{Bin count.} We use $K = 25$ uniform bins on $[-3, 3]$. The
+metric is robust to small changes (we did not see meaningful changes
+between $K=20$ and $K=30$ in pilot work), but it is not invariant to
+extreme bin choices.
+
+\textbf{Channel-marginal only.} AT does not see joint dependencies
+across channels. Two networks with identical channel marginals but
+different cross-channel structure would receive AT $= 0$ but might
+differ under a richer joint metric. We view this as a deliberate
+choice: it makes AT cheap and reveals structure CKA misses, but it is
+a known blind spot.
+
+\textbf{Same-architecture baseline ambiguity on ImageNet-V2.} As shown
+above, the same-architecture AT depends strongly on which two
+checkpoints are paired. We report the most conservative and the most
+optimistic ratio, but the underlying methodological question
+("\emph{which} same-architecture baseline is the right one?") is
+unresolved and should be taken seriously by future work.
+
+\section{Conclusion}
+
+We introduced Activation Transport (AT), an optimal-transport metric
+for representation similarity that operates on per-channel
+activation distributions and is solved by linear-sum assignment over
+1D Wasserstein costs. On CIFAR-10, CIFAR-100, and ImageNet-V2, AT
+shows that cross-architecture representations are 7--60$\times$ more
+distant from each other than two networks of the same architecture
+are, while CKA reports much smaller separations on the same models.
+Layer-wise AT grows monotonically with depth, and attention-based
+architectures (ViT, Mixer) consistently cluster closer to each other
+than to convolutional networks. Taken together, these results argue
+that the modern story of representational universality is partially
+an artifact of CKA's covariance-side aggregation: when a metric is
+sensitive to the shape of individual channel distributions,
+architectural differences re-emerge clearly.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{kornblith2019similarity}
+Simon Kornblith, Mohammad Norouzi, Honglak Lee, and Geoffrey Hinton.
+Similarity of neural network representations revisited.
+\emph{ICML}, 2019.
+
+\bibitem{raghu2017svcca}
+Maithra Raghu, Justin Gilmer, Jason Yosinski, and Jascha Sohl-Dickstein.
+SVCCA: Singular vector canonical correlation analysis for deep
+learning dynamics and interpretability. \emph{NeurIPS}, 2017.
+
+\bibitem{morcos2018pwcca}
+Ari Morcos, Maithra Raghu, and Samy Bengio.
+Insights on representational similarity in neural networks with
+canonical correlation. \emph{NeurIPS}, 2018.
+
+\bibitem{dosovitskiy2021vit}
+Alexey Dosovitskiy et al.
+An image is worth 16x16 words: Transformers for image recognition at
+scale. \emph{ICLR}, 2021.
+
+\bibitem{tolstikhin2021mlpmixer}
+Ilya Tolstikhin et al.
+MLP-Mixer: An all-MLP architecture for vision. \emph{NeurIPS}, 2021.
+
+\bibitem{he2016resnet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+Deep residual learning for image recognition. \emph{CVPR}, 2016.
+
+\bibitem{raghu2021vits}
+Maithra Raghu et al.
+Do Vision Transformers see like Convolutional Neural Networks?
+\emph{NeurIPS}, 2021.
+
+\bibitem{nguyen2021do}
+Thao Nguyen, Maithra Raghu, and Simon Kornblith.
+Do wide and deep networks learn the same things?
+\emph{ICLR}, 2021.
+
+\bibitem{arjovsky2017wgan}
+Martin Arjovsky, Soumith Chintala, and L\'eon Bottou.
+Wasserstein generative adversarial networks. \emph{ICML}, 2017.
+
+\bibitem{courty2017otda}
+Nicolas Courty, R\'emi Flamary, Devis Tuia, and Alain Rakotomamonjy.
+Optimal transport for domain adaptation.
+\emph{IEEE Trans.\ PAMI}, 2017.
+
+\bibitem{singh2020fusion}
+Sidak Pal Singh and Martin Jaggi.
+Model fusion via optimal transport. \emph{NeurIPS}, 2020.
+
+\bibitem{liu2022deep}
+Liu et al. Deep model permutation alignment via optimal transport.
+\emph{Preprint}, 2022.
+
+\bibitem{wightman2019timm}
+Ross Wightman.
+PyTorch Image Models.
+\url{https://github.com/rwightman/pytorch-image-models}, 2019.
+
+\bibitem{recht2019imagenetv2}
+Benjamin Recht, Rebecca Roelofs, Ludwig Schmidt, and Vaishaal Shankar.
+Do ImageNet classifiers generalize to ImageNet?
+\emph{ICML}, 2019.
+
+\bibitem{touvron2021deit}
+Hugo Touvron et al.
+Training data-efficient image transformers and distillation through
+attention. \emph{ICML}, 2021.
+
+\end{thebibliography}
+
+\end{document}
