@@ -13,9 +13,20 @@
 \usepackage{amsmath,amssymb}
 
 % Suppress the page-1 notice footer entirely (no venue/header text).
+\makeatletter
 \renewcommand{\Notice@String}{}
+\makeatother
 
 \icmltitlerunning{Activation Transport}
+
+% Force-set the running-head fancyhead after the package has finished,
+% in case the icmltitle running-head check rejects the short title.
+\AtBeginDocument{%
+  \makeatletter
+  \gdef\@icmltitlerunning{Activation Transport}%
+  \makeatother
+  \fancyhead[C]{\small\bf Activation Transport}%
+}
 
 \begin{document}
 
